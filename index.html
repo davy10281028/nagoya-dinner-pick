@@ -16,13 +16,13 @@
 *{box-sizing:border-box}
 body{font-family:"Noto Sans TC","Microsoft JhengHei","Segoe UI",sans-serif;
   color:var(--ink); background:var(--soft); margin:0; line-height:1.65; font-size:15px}
-.wrap{max-width:1140px; margin:0 auto; background:var(--bg); padding:44px 48px 64px}
+.wrap{max-width:1280px; margin:0 auto; background:var(--bg); padding:44px 44px 64px}
 h1{font-size:27px; margin:0 0 4px}
 .sub{color:var(--muted); font-size:13.5px; margin-bottom:26px}
 h2{font-size:19px; margin:42px 0 12px; padding-bottom:7px; border-bottom:2px solid var(--ink)}
 h3{font-size:15.5px; margin:26px 0 8px; color:var(--a)}
-table{width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:13.5px}
-th,td{border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top}
+table{width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:13px}
+th,td{border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top}
 th{background:var(--soft); font-weight:600}
 th.nw,td.nw{white-space:nowrap}
 td.n,th.n{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
@@ -40,6 +40,10 @@ tr.bad td{background:var(--red-soft)}
 .tag.y{background:var(--ok-soft); color:var(--ok)}
 .tag.n{background:var(--red-soft); color:var(--red)}
 .tag.q{background:var(--warn-soft); color:var(--warn)}
+.t1,.t2,.t3{display:inline-block; font-size:11px; font-weight:700; padding:2px 7px; border-radius:3px; white-space:nowrap}
+.t1{background:var(--ok-soft); color:var(--ok); border:1px solid #b7d9c5}
+.t2{background:var(--warn-soft); color:var(--warn); border:1px solid #e6cda6}
+.t3{background:var(--red-soft); color:var(--red); border:1px solid #e8bdb8}
 .box{border-left:4px solid var(--a); background:var(--a-soft); padding:12px 16px; margin:14px 0; border-radius:0 4px 4px 0}
 .box.warn{border-color:#c9772e; background:var(--warn-soft)}
 .box.ok{border-color:#3d8a63; background:var(--ok-soft)}
@@ -48,7 +52,7 @@ tr.bad td{background:var(--red-soft)}
 .box p{margin:5px 0}
 ul{padding-left:20px; margin:6px 0}
 li{margin:3px 0}
-.small{font-size:12.5px; color:var(--muted)}
+.small{font-size:12px; color:var(--muted)}
 .mono{font-family:"Consolas","Courier New",monospace; font-size:12.5px}
 .jp{font-family:"Yu Gothic","Meiryo","Noto Sans JP",sans-serif}
 .yes{color:var(--ok); font-weight:700}
@@ -71,8 +75,8 @@ li{margin:3px 0}
   h2{font-size:17px; margin:32px 0 10px}
   .sub{font-size:12.5px}
   .hint{display:block}
-  .scroller table{min-width:860px; font-size:13px}
-  .scroller table th,.scroller table td{padding:6px 8px}
+  .scroller table{min-width:1000px; font-size:12.5px}
+  .scroller table th,.scroller table td{padding:6px 7px}
   .box{padding:11px 13px}
   ol,ul{padding-left:18px}
   .notes{padding:12px}
@@ -80,7 +84,7 @@ li{margin:3px 0}
 @media (max-width:480px){
   .wrap{padding:18px 11px 40px}
   h1{font-size:19px}
-  .scroller table{min-width:800px; font-size:12.5px}
+  .scroller table{min-width:940px; font-size:12px}
 }
 @media print{body{background:#fff} .wrap{padding:0; max-width:none} h2{page-break-after:avoid} table{page-break-inside:avoid} }
 </style>
@@ -96,13 +100,19 @@ li{margin:3px 0}
 </div>
 
 <div class="box gold">
-<p><strong>這一版已經做過兩道篩選，剩下的都是「可以直接選」的：</strong></p>
-<ul>
-<li><strong>拿掉 10/13（樂高日）</strong>—— 那天 17:00 才離園、回榮已 18:15，幼兒會在車上睡著、長輩也累了，不適合慶生。所以<strong>只剩 10/10（六）和 10/12（一·祝）兩個晚上可選</strong>（10/11 週日交通動線差，列為勉強備案）。</li>
-<li><strong>拿掉交通不便的店</strong>—— 標準是「從飯店（榮·中日大樓）地鐵直達或最多轉乘 1 次，且出站步行 6 分鐘內」。唯一例外是<strong>八勝館</strong>：它是計程車門到門 20–25 分、<strong>全程不用走路</strong>，對長輩其實比走路 10 分鐘更輕鬆，所以保留並列為首選。</li>
-</ul>
+<p><strong>這一版的做法：星級店全部列回來，改用「交通難易度」標示，不再直接刪。</strong></p>
+<p>上一版我用「出站步行 6 分內」當標準，結果把整個一星層掃掉了 —— 那個標準訂太嚴。實際查下來，這些店從飯店（榮·中日大樓）出發<strong>幾乎都在 25 分鐘內可達</strong>，而七個人本來就是叫兩台計程車最實際。所以現在全部列出，用下面的標示讓家人自己判斷：</p>
+<p>
+<span class="t1">易</span> 走路可到、地鐵直達＋出站 6 分內、或站上樓
+<span class="t2">中</span> 地鐵直達或轉乘 1 次＋出站 7–10 分，或計程車 15 分內
+<span class="t3">遠</span> 出站步行 11 分以上，或需 20 分以上
+</p>
+<p><strong>唯一還是刪掉的是 10/13（樂高日）</strong>—— 那天 17:00 才離園、回榮已 18:15，幼兒會在車上睡著、長輩也累了。所以<strong>只剩 10/10（六）和 10/12（一·祝）兩個晚上</strong>，10/11（日）列為勉強備案。</p>
 <p>每家最後一欄有「家人勾選」，直接圈選即可。決定後告訴我哪一家哪一天，我幫你寫進主行程。</p>
-<p><strong>只有一件事要快：</strong>今天 9/21，距 10/10 只剩 <strong>18 天</strong>。米其林星級店幾乎都是完全預約制且座位極少，週六尤其滿，<strong>選定後當天就要打電話</strong>。</p>
+</div>
+
+<div class="box red">
+<p><strong>時間壓力：</strong>今天 9/21，距 10/10 只剩 <strong>18 天</strong>。星級店多是 8–16 席的完全預約制小店，<strong>七人幾乎等於包場</strong>，週六尤其滿。選定後當天就要打電話。</p>
 </div>
 
 <h2>一、先決定哪一天</h2>
@@ -112,59 +122,190 @@ li{margin:3px 0}
 <th class="nw">日期</th><th class="nw">當天行程</th><th>評估</th><th class="nw">建議入席</th>
 </tr></thead>
 <tbody>
-<tr class="pick"><td class="nw"><strong>10/10（六）</strong></td><td class="nw">名古屋城＋德川園<br>→ 榮購物</td><td><strong class="yes">★ 最推薦。</strong>下午 3 點多從德川園結束，回榮飯店換衣服剛好。抵日第二天體力已恢復，隔天（10/11 名古屋港）行程輕鬆不怕累。<strong>下表所有餐廳這天都營業</strong>。代價是下午的榮四大百貨購物要挪到 10/12 或 10/14。</td><td class="nw"><strong>18:00</strong></td></tr>
-<tr class="pick"><td class="nw"><strong>10/12（一·體育日）</strong></td><td class="nw">則武區<br>→ 名古屋站百貨</td><td><strong class="yes">★ 次推薦。</strong>那天傍晚本來就在名古屋站逛街，<strong>若選名古屋站一帶的店＝零額外移動</strong>，對長輩幼兒最省力。<span class="no">注意：是國定假日 → 錦輝茶寮（日祝休）不能用。</span></td><td class="nw"><strong>18:00</strong></td></tr>
-<tr><td class="nw">10/11（日）</td><td class="nw">名古屋港</td><td><span class="qq">勉強備案。</span>從名古屋港／港區役所回市區餐廳都要 40 分以上，而且土方、蔦茂、錦輝茶寮 週日休。除非選八勝館或飯店系餐廳，否則不建議。</td><td class="nw">18:30</td></tr>
+<tr class="pick"><td class="nw"><strong>10/10（六）</strong></td><td class="nw">名古屋城＋德川園<br>→ 榮購物</td><td><strong class="yes">★ 最推薦。</strong>下午 3 點多從德川園結束，回榮飯店換衣服剛好。抵日第二天體力已恢復，隔天（10/11 名古屋港）行程輕鬆不怕累。<strong>下表所有餐廳這天都營業</strong>，選擇最多。代價是下午的榮四大百貨購物要挪到 10/12 或 10/14。</td><td class="nw"><strong>18:00</strong></td></tr>
+<tr class="pick"><td class="nw"><strong>10/12（一·體育日）</strong></td><td class="nw">則武區<br>→ 名古屋站百貨</td><td><strong class="yes">★ 次推薦。</strong>那天傍晚本來就在名古屋站逛街，<strong>若選名古屋站一帶的店＝零額外移動</strong>。<span class="no">注意：是國定假日＋週一 → 錦輝茶寮（日祝休）、せき根、尾頭橋すみや、南山吉扇、味処もちづき（週一休）都不能用。</span></td><td class="nw"><strong>18:00</strong></td></tr>
+<tr><td class="nw">10/11（日）</td><td class="nw">名古屋港</td><td><span class="qq">勉強備案。</span>從名古屋港／港區役所回市區餐廳都要 40 分以上，而且土方、蔦茂、錦輝茶寮、せき根、味処おおたに 週日休。</td><td class="nw">18:30</td></tr>
 <tr class="bad"><td class="nw">10/13（二）</td><td class="nw">樂高樂園（全天）</td><td><span class="no">已排除（依你指示）。</span>17:00 離園、回榮 18:15，幼兒與長輩狀態都不適合正式慶生餐。</td><td class="nw">—</td></tr>
 <tr class="bad"><td class="nw">10/09（五）</td><td class="nw">抵達日</td><td><span class="no">不可行</span>——18:45 落地、到飯店已 20:00，所有店都過了最後入店時間。</td><td class="nw">—</td></tr>
-<tr class="bad"><td class="nw">10/14（三）</td><td class="nw">熱田神宮→大須→返程</td><td><span class="no">不可行</span>——19:55 回程班機；且八勝館週三休。</td><td class="nw">—</td></tr>
+<tr class="bad"><td class="nw">10/14（三）</td><td class="nw">熱田神宮→大須→返程</td><td><span class="no">不可行</span>——19:55 回程班機；且八勝館、明庵、ことほぎ、花いち、いまい、蓬莱軒本店 全部週三休。</td><td class="nw">—</td></tr>
 </tbody>
 </table></div>
 
-<h2>二、米其林星級（優先排序）</h2>
-<p class="small">全部為《米其林愛知 2019》評價。<span class="tag y">已確認</span>＝官網／訂位平台明載；<span class="tag q">需電話確認</span>＝查不到明確規定，訂位時務必問清楚。</p>
-
-<div class="box warn">
-<p><strong>坦白說：把「交通方便」和「能帶 3 歲幼兒」兩個條件同時套上去，米其林這一區就只剩下 4 家，而其中真正推薦的只有八勝館。</strong>被交通條件刷掉的星級店有：懐石八泉 ★★（本山站步行 12–15 分）、せき根 ★★（昭和區，無明確車站）、明庵 ★★（大曾根一帶）、南山吉扇 ★（いりなか站步行 11 分）、尾頭橋すみや ★（金山站步行 10 分）、割烹しんすけ ★（高岳站步行 8 分），以及味処もちづき、味処おおたに、味感ことほぎ、板前割烹花いち、いまい 這 5 家一星（分散在中村區、西區、千種區，且個室與幼兒規定查無公開資訊）。</p>
-</div>
+<h2>二、米其林星級（共 14 家，依星數排序；同星數內依交通方便度排）</h2>
+<p class="small"><span class="tag y">已確認</span>＝官網／訂位平台明載；<span class="tag q">需電話確認</span>＝查不到明確規定，訂位時務必問清楚。「需確認」不等於不可行，只是官網沒寫。</p>
 
 <p class="hint">↔ 手機請左右滑動表格</p>
 <div class="scroller"><table>
 <thead><tr>
-<th class="nw">米其林</th><th class="nw">餐廳</th><th class="nw">從飯店怎麼去</th><th>個室・七人・幼兒</th><th class="nw">公休</th><th class="n">六大一小估價</th><th class="nw">10/10<br>六</th><th class="nw">10/12<br>一祝</th><th class="nw">10/11<br>日</th><th class="nw c">家人勾選</th>
+<th class="nw">米其林</th><th class="nw">餐廳</th><th class="nw">交通</th><th class="nw">從飯店怎麼去</th><th>個室・七人・幼兒</th><th class="nw">公休・時間</th><th class="n">六大估價</th><th class="nw">10/10<br>六</th><th class="nw">10/12<br>一祝</th><th class="nw">10/11<br>日</th><th class="nw c">勾選</th>
 </tr></thead>
 <tbody>
-
-<tr class="pick">
-<td class="nw"><span class="star">★★</span></td>
-<td class="nw"><strong>八勝館</strong><br><span class="small jp">料亭 八勝館（はっしょうかん）</span><span class="badge b-ok">首選</span></td>
-<td class="nw"><strong>計程車門到門<br>20–25 分</strong><br><span class="small">全程不用走路<br>（八事站步行 3 分，<br>但建議別搭地鐵）<br>兩台車約 ¥5,000–6,000</span></td>
-<td><strong>大正 14 年創業，令和 2 年列為國家重要文化財</strong>；4,000 坪日本庭園。<span class="tag y">大小 12 間榻榻米個室全部面向庭園，且可安排椅子席</span><span class="tag y">幼兒餐 ¥5,000 起（五角重／大德寺重 ¥10,000）</span><span class="tag y">備有嬰幼兒座椅，官方明言「家族同行請安心前來」</span><br><span class="small">本來就承辦結納、七五三、長壽宴。建築與庭園夜間點燈得過北美照明學會國際獎，晚席可從房內看。☎ 052-831-1585（9:00–17:00）／一休.com（115057）。<br>⚠️ 庭園散步導覽只有<strong>午席後</strong>才有，晚席是「在房內看點燈」。<br>⚠️ 別選「田舎家」圍爐裏房——要 ¥50,000/人起，且是獨立離屋要走飛石石階，官方自己註明腳力不便者不適合。</span></td>
-<td class="nw">週三</td>
-<td class="n">¥185,000<br><strong>≈ NT$37,900</strong><br><span class="small">大人 ¥30,000×6<br>＋幼兒 ¥5,000<br>（含稅含服務費）<br>升 ¥35,000 檔 ≈ NT$44,100</span></td>
-<td class="nw c"><span class="yes">◎</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
-<td class="nw c"><span class="vote">☐</span></td>
-</tr>
 
 <tr class="gold">
 <td class="nw"><span class="star">★★★</span></td>
 <td class="nw"><strong>土方</strong><br><span class="small jp">日本料理 土方（ひじかた）</span></td>
-<td class="nw">名城線<br><strong>榮 → 久屋大通<br>1 站</strong>＋步行 6 分<br><span class="small">或計程車約 7 分</span></td>
-<td><strong>東海地區唯一的日本料理三星</strong>，預約困難店。18:00–21:00 一輪。<span class="tag q">個室需確認</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-971-1110／一休.com 可線上訂（restaurant.ikyu.com/121041）。おまかせ套餐全 15 品，另加服務費 10%。<strong>七人要整間包，務必先問能否帶 3 歲幼兒</strong>——這類店常婉拒，而且價格是全表最高。</span></td>
-<td class="nw">週日<br>＋不定休</td>
-<td class="n">¥254,100–326,700<br><strong>≈ NT$52,100–67,000</strong><br><span class="small">¥42,350–54,450／人</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">名城線<strong>榮→久屋大通<br>1 站</strong>＋步行 6 分<br><span class="small">或計程車約 7 分</span></td>
+<td><strong>東海地區唯一的日本料理三星</strong>，預約困難店。18:00–21:00 一輪、全 15 品。<span class="tag q">個室需確認</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-971-1110／一休.com（121041）。另加服務費 10%。<strong>七人要整間包，務必先問能否帶 3 歲幼兒</strong>——這類店常婉拒，且價格是全表最高。</span></td>
+<td class="nw">週日＋不定休<br>18:00–21:00</td>
+<td class="n">¥254,100–326,700<br><strong>≈ NT$52,100<br>–67,000</strong><br><span class="small">¥42,350–54,450／人</span></td>
 <td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="no">休</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr class="pick">
+<td class="nw"><span class="star">★★</span></td>
+<td class="nw"><strong>八勝館</strong><br><span class="small jp">料亭 八勝館（はっしょうかん）</span><span class="badge b-ok">首選</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw"><strong>計程車門到門<br>20–25 分</strong><br><span class="small"><strong>全程不用走路</strong><br>兩台約 ¥5,000–6,000<br>（八事站步行 3 分，<br>但建議別搭地鐵）</span></td>
+<td><strong>大正 14 年創業，令和 2 年列為國家重要文化財</strong>；4,000 坪日本庭園。<span class="tag y">大小 12 間榻榻米個室全部面向庭園，且可安排椅子席</span><span class="tag y">幼兒餐 ¥5,000 起（五角重／大德寺重 ¥10,000）</span><span class="tag y">備有嬰幼兒座椅，官方明言「家族同行請安心前來」</span><br><span class="small">本來就承辦結納、七五三、長壽宴。夜間點燈得過北美照明學會國際獎，晚席可從房內看。☎ 052-831-1585（9:00–17:00）／一休.com（115057）。<br>⚠️ 庭園散步導覽只有<strong>午席後</strong>才有。別選「田舎家」圍爐裏房——要 ¥50,000/人起，且要走飛石石階，官方註明腳力不便者不適合。</span></td>
+<td class="nw">週三<br>夜席 17:30–21:00</td>
+<td class="n">¥185,000<br><strong>≈ NT$37,900</strong><br><span class="small">¥30,000×6<br>＋幼兒 ¥5,000<br>（含稅含服務費）<br>¥35,000 檔 ≈ NT$44,100</span></td>
+<td class="nw c"><span class="yes">◎</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr class="pick">
+<td class="nw"><span class="star">★★</span></td>
+<td class="nw"><strong>明庵</strong><br><span class="small jp">明庵（みょうあん）</span><span class="badge b-ok">交通最意外</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">名鐵瀬戸線<br><strong>榮町 → 森下 直達<br>約 8 分</strong>＋步行 3 分<br><span class="small">榮町站就在飯店旁的<br>Oasis 21 地下<br>或計程車約 12 分</span></td>
+<td>11 席的小店，主廚發辦（おまかせ）。<span class="tag q">個室需確認（七人≒包場）</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-935-7678。18:00 開始（L.O. 20:00）。另加服務費。<strong>這是我上一版誤刪的一家 —— 它其實是二星裡交通最方便的</strong>：從飯店走到榮町站搭名鐵瀬戸線直達，不用轉乘。而且<strong>10/10 那天下午你們本來就會去德川園，明庵就在德川町、同一區</strong>，動線意外地順。<br>⚠️ 公休日資料不一致（有寫週三休、也有寫不定休），<strong>務必電話確認</strong>。廣範圍過敏或挑食可能被拒訂。</span></td>
+<td class="nw">週三或不定休<br><strong>（需確認）</strong><br>18:00–（L.O.20:00）</td>
+<td class="n">約 ¥90,000＋服務費<br><strong>≈ NT$18,500 起</strong><br><span class="small">約 ¥15,000／人<br>（依季節食材變動）</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
 <td class="nw c"><span class="vote">☐</span></td>
 </tr>
 
 <tr>
 <td class="nw"><span class="star">★★</span></td>
 <td class="nw"><strong>天冨良 にい留</strong><br><span class="small jp">天ぷら にい留（にいとめ）</span></td>
-<td class="nw">計程車約 7 分<br><span class="small">（東區泉，離榮很近）<br>或走到久屋大通<br>轉櫻通線高岳＋步行 3 分</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">計程車約 7 分<br><span class="small">（東區泉，離榮很近）<br>或走到久屋大通轉<br>櫻通線高岳＋步行 3 分</span></td>
 <td>全國食通都來的名古屋天婦羅名店，完全預約制、18:00 開席。<strong>天婦羅不是生食</strong>，現炸現吃、幼兒也容易接受。<span class="tag q">席數需確認（吧台約 8 席、無個室）</span><span class="tag q">幼兒需確認</span><br><span class="small">電話號碼未公開查證，<strong>建議請飯店櫃台代查代訂</strong>。七人幾乎等於包下整條吧台。在 2 樓、沒電梯。</span></td>
-<td class="nw">不定休</td>
+<td class="nw">不定休<br>18:00–</td>
 <td class="n">約 ¥180,000<br><strong>≈ NT$36,900</strong><br><span class="small">約 ¥30,000／人</span></td>
 <td class="nw c"><span class="qq">需問</span></td><td class="nw c"><span class="qq">需問</span></td><td class="nw c"><span class="qq">需問</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★★</span></td>
+<td class="nw"><strong>せき根</strong><br><span class="small jp">日本料理 せき根</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">東山線榮→伏見轉<br>鶴舞線いりなか<br>約 15 分＋步行 9–10 分<br><span class="small">或計程車約 18 分</span></td>
+<td>16 席（吧台 6＋<strong>個室 4 席・6 席各一間</strong>）。<span class="tag q">七人需併兩間個室或包場，務必先問</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-836-5121。完全預約制、無午餐營業。晚餐 ¥20,000–29,999。<br>⚠️ <strong>週日與週一都休 → 拿掉 10/13 之後，這家只剩 10/10 可用。</strong></span></td>
+<td class="nw">週日・週一</td>
+<td class="n">約 ¥150,000<br><strong>≈ NT$30,800</strong><br><span class="small">約 ¥25,000／人</span></td>
+<td class="nw c"><span class="yes">◎</span></td><td class="nw c"><span class="no">休</span></td><td class="nw c"><span class="no">休</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★★</span></td>
+<td class="nw"><strong>懐石 八泉</strong><br><span class="small jp">京懐石 八泉（はちせん）</span></td>
+<td class="nw"><span class="t3">遠</span></td>
+<td class="nw">東山線<strong>榮→本山 直達<br>約 11 分</strong>＋步行 12–15 分<br><span class="small">或計程車約 18 分</span></td>
+<td>完全預約制，12 席的小店。晚席 18:00–22:00。<span class="tag q">個室需確認</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-783-0600。懷石 ¥37,950（含稅含服務費，午晚同價）。七人已佔全店一半以上，可問能否包場。地鐵雖是東山線直達，但出站還要走 12–15 分，長輩要考慮 —— 建議直接叫計程車。</span></td>
+<td class="nw">不定休<br>18:00–22:00</td>
+<td class="n">¥227,700<br><strong>≈ NT$46,700</strong><br><span class="small">¥37,950／人</span></td>
+<td class="nw c"><span class="qq">需問</span></td><td class="nw c"><span class="qq">需問</span></td><td class="nw c"><span class="qq">需問</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>味感 ことほぎ</strong><br><span class="small jp">味感 ことほぎ</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">計程車約 6 分<br><span class="small">或走到久屋大通轉<br>櫻通線高岳 1 站<br>＋步行 5 分<br>（久屋大通步行 12 分也到）</span></td>
+<td>東區泉 2-1-28 ヴィアーレストリア 2F。<span class="tag q">個室需確認</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 080-2726-3335（行動電話）。<strong>離飯店最近的星級店之一</strong>，走路 12 分就到。價格未公開，需電話詢價。在 2 樓。</span></td>
+<td class="nw">週三</td>
+<td class="n"><span class="small">未公開<br><strong>需電話詢價</strong></span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr class="pick">
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>いまい</strong><br><span class="small jp">日本料理 いまい</span><span class="badge b-a">CP 值高</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">東山線<strong>榮→池下 直達<br>約 8 分</strong>＋步行 6–8 分<br><span class="small">或計程車約 10 分</span></td>
+<td>原在西尾市，<strong>已遷至千種區向陽（池下）</strong>。完全預約制。<span class="tag q">個室需確認</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-761-9727。18:00–21:30。<strong>¥15,000 含稅，是星級店裡最划算的一家</strong>，而且東山線一條線直達不用轉乘。無停車場。</span></td>
+<td class="nw">週三<br>18:00–21:30</td>
+<td class="n">¥90,000<br><strong>≈ NT$18,500</strong><br><span class="small">¥15,000／人（含稅）</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr class="pick">
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>味処 もちづき</strong><br><span class="small jp">味処 もちづき</span><span class="badge b-ok">全席個室</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">東山線榮→名古屋轉<br>櫻通線太閤通<br>約 13 分＋步行 7 分<br><span class="small">或東山線直達中村日赤<br>＋步行 9 分／計程車 15 分</span></td>
+<td><span class="tag y">全席個室</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-482-7421。18:00–22:00。套餐 ¥16,500。<strong>「全席個室」在星級小店裡非常罕見</strong>，七人包廂不成問題，價格也友善。<br>⚠️ <strong>週一休 → 10/12（週一·祝日）不能用，需確認祝日是否營業。</strong></span></td>
+<td class="nw">週一<br>18:00–22:00</td>
+<td class="n">¥99,000<br><strong>≈ NT$20,300</strong><br><span class="small">¥16,500／人</span></td>
+<td class="nw c"><span class="yes">◎</span></td><td class="nw c"><span class="no">週一休</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>尾頭橋すみや</strong><br><span class="small jp">尾頭橋すみや</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">名城線<strong>榮→金山<br>2 站約 5 分</strong>＋步行 10 分<br><span class="small">或計程車約 12 分</span></td>
+<td><span class="tag y">完全個室方案可線上訂</span><span class="tag n">兒童限制：官方寫「僅限能食用與大人相同套餐者」→ 3 歲幼兒需電話特別商量</span><br><span class="small">☎ 052-322-1170。晚席 18:00–22:00（最終入店 20:00）。松套餐 ¥23,100／竹套餐 ¥19,800／鱉鍋套餐 ¥19,800，晚餐加服務費 10%。<strong>星級店裡個室規格最明確的一家。</strong>在 2 樓、沒電梯（你說沒關係）。<br>⚠️ 週一休 → 10/12 不能用。</span></td>
+<td class="nw">週一＋不定休<br>18:00–22:00</td>
+<td class="n">¥130,680–152,460<br><strong>≈ NT$26,800<br>–31,300</strong><br><span class="small">¥19,800–23,100／人<br>＋服務費 10%</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="no">週一休</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>割烹 しんすけ</strong><br><span class="small jp">割烹 しんすけ</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">計程車約 7 分<br><span class="small">（東區泉，離榮很近）<br>或走到久屋大通轉<br>櫻通線高岳＋步行 8 分</span></td>
+<td>總席數僅 8 席，<span class="tag y">包場門檻 6 人起 → 七人可包下整間</span><span class="tag n">兒童限制：「僅限能食用與大人相同套餐者」</span><br><span class="small">☎ 052-935-8103。18:00 開始，<strong>結束時間由客人決定</strong>（不趕人）。晚餐 ¥36,300。包場＋慶生的氣氛很好，但幼兒這關要先問過。</span></td>
+<td class="nw">不定休<br>18:00–</td>
+<td class="n">¥217,800<br><strong>≈ NT$44,600</strong><br><span class="small">¥36,300／人</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>味処 おおたに</strong><br><span class="small jp">味処 おおたに</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">東山線<strong>榮→中村公園<br>直達約 15 分</strong>＋步行 7 分<br><span class="small">（岩塚站步行 7 分也到）<br>或計程車約 15 分</span></td>
+<td><span class="tag q">個室需確認</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-471-3537。週一 18:00–23:00（L.O.22:00）、週二～六 12:00– 與 18:00–23:00。有專用停車場 2 台。<strong>東山線一條線直達不用轉乘。</strong>價格未公開，需電話詢價。<br>⚠️ 週日休 → 10/11 不能用。</span></td>
+<td class="nw">週日<br>18:00–23:00</td>
+<td class="n"><span class="small">未公開<br><strong>需電話詢價</strong></span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="no">休</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>板前割烹 花いち</strong><br><span class="small jp">板前割烹 花いち</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">東山線榮→伏見轉<br>鶴舞線浄心<br>約 12 分＋步行 8–9 分<br><span class="small">或計程車約 12 分</span></td>
+<td>古民家改裝、<strong>連招牌都沒有</strong>的隱密割烹。完全預約制。<span class="tag q">個室需確認</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-524-2876。營業 17:00–22:00（L.O.21:00），週三休。平均 ¥10,000 —— <strong>星級店裡最便宜的一家</strong>。有專用停車 2 台。</span></td>
+<td class="nw">週三<br>17:00–22:00</td>
+<td class="n">約 ¥60,000<br><strong>≈ NT$12,300</strong><br><span class="small">約 ¥10,000／人</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><span class="star">★</span></td>
+<td class="nw"><strong>南山 吉扇</strong><br><span class="small jp">南山 吉扇（きっせん）</span></td>
+<td class="nw"><span class="t3">遠</span></td>
+<td class="nw">東山線榮→伏見轉<br>鶴舞線いりなか<br>約 15 分＋步行 11 分<br><span class="small">或計程車約 18 分</span></td>
+<td>13 席，<span class="tag n">沒有個室</span>晚席 18:00–22:00（L.O. 20:00）。<span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-836-7227。服務費僅 5%。晚餐平均 ¥17,000，七人佔掉半間店，實質上算半包場。<br>⚠️ 週一與第 1・3 週二休 → 10/12 不能用。</span></td>
+<td class="nw">週一・第1・3週二<br>18:00–22:00</td>
+<td class="n">約 ¥107,100<br><strong>≈ NT$22,000</strong><br><span class="small">約 ¥17,000／人<br>＋服務費 5%</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="no">週一休</span></td><td class="nw c"><span class="yes">○</span></td>
 <td class="nw c"><span class="vote">☐</span></td>
 </tr>
 
@@ -172,34 +313,36 @@ li{margin:3px 0}
 </table></div>
 
 <div class="box red">
-<p><strong>京都 吉兆 名古屋店 ★（Midland Square 41F）——交通最方便，但幼兒進不去。</strong></p>
-<p class="small">官方明定「小學生未滿不得入店」，3 歲幼兒無法入場，所以不列入選項。非常可惜：名古屋站 7 號出口正對面、41 樓夜景、個室 2–20 名、京都吉兆本家分店、全年幾乎無休。<strong>若哪天願意把幼兒交給人顧，六位大人去這裡是全表最頂級的選擇</strong>：懷石 ¥24,200／¥36,300（洋室個室 ¥25,300／¥37,950、座敷個室 ¥26,400／¥39,600），六人約 NT$31,100–48,700。☎ 052-527-8888。</p>
+<p><strong>京都 吉兆 名古屋店 ★（Midland Square 41F）——交通最方便，但幼兒進不去，所以不列入選項。</strong></p>
+<p class="small">官方明定「小學生未滿不得入店」。非常可惜：名古屋站 7 號出口正對面、41 樓夜景、個室 2–20 名、京都吉兆本家分店、全年幾乎無休。<strong>若哪天願意把幼兒交給人顧，六位大人去這裡是全表最頂級的選擇</strong>：懷石 ¥24,200／¥36,300（洋室個室 ¥25,300／¥37,950、座敷個室 ¥26,400／¥39,600），六人約 NT$31,100–48,700。☎ 052-527-8888。</p>
 </div>
 
-<h2>三、名古屋當地名店（非星級，但名氣或條件更適合）</h2>
-<p class="small">這一區的共通優點：<strong>個室規格明確、明列兒童餐、交通近、價格區間寬。</strong>如果家人覺得「米其林那幾家太貴或太拘謹」，答案在這裡。<br>被交通條件刷掉的是：あつた蓬莱軒 <strong>本店</strong>（熱田區，要專程遠行，且與松坂屋店重複）、鉄板焼 匠（ささしまライブ，名古屋站步行 10 分）。</p>
+<h2>三、名古屋當地名店（非星級，共 10 家）</h2>
+<p class="small">這一區的共通優點：<strong>個室規格明確、明列兒童餐、價格區間寬。</strong>如果家人覺得米其林那幾家太貴或太拘謹，答案在這裡。</p>
 
 <p class="hint">↔ 手機請左右滑動表格</p>
 <div class="scroller"><table>
 <thead><tr>
-<th class="nw">餐廳</th><th class="nw">從飯店怎麼去</th><th>個室・七人・幼兒</th><th class="nw">公休・時間</th><th class="n">六大一小估價</th><th class="nw">10/10<br>六</th><th class="nw">10/12<br>一祝</th><th class="nw">10/11<br>日</th><th class="nw c">家人勾選</th>
+<th class="nw">餐廳</th><th class="nw">交通</th><th class="nw">從飯店怎麼去</th><th>個室・七人・幼兒</th><th class="nw">公休・時間</th><th class="n">六大一小估價</th><th class="nw">10/10<br>六</th><th class="nw">10/12<br>一祝</th><th class="nw">10/11<br>日</th><th class="nw c">勾選</th>
 </tr></thead>
 <tbody>
 
 <tr class="pick">
 <td class="nw"><strong>鉄板焼 那古亭</strong><br><span class="small jp">鉄板焼 那古亭（なこてい）</span><span class="badge b-ok">鐵板燒首選</span></td>
-<td class="nw">東山線<br><strong>榮 → 名古屋 5 分</strong><br>再搭電梯上 18F<br><span class="small">JR 名古屋站正上方<br>全程室內不用出站</span></td>
-<td><span class="tag y">個室 1 間・5–10 名 → 七人剛好</span><span class="tag y">Kids Plate ¥4,000（未就學限定）／兒童晚餐 ¥8,500（小學生以下）</span><br><span class="small">☎ 052-584-1106。A5 黑毛和牛、活伊勢龍蝦、活鮑魚眼前現煎，18 樓景觀；有「記念日方案」含香檳與紀念餐盤。<strong>10/12 那晚選這家＝從百貨直接搭電梯上樓，長輩幼兒零額外移動</strong>。<br>另有 Chef's Table ¥70,000（4 名起，含幼兒最多 8 名）。</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">東山線<strong>榮→名古屋 5 分</strong><br>再搭電梯上 18F<br><span class="small">JR 名古屋站正上方<br>全程室內不用出站</span></td>
+<td><span class="tag y">個室 1 間・5–10 名 → 七人剛好</span><span class="tag y">Kids Plate ¥4,000（未就學限定）／兒童晚餐 ¥8,500（小學生以下）</span><br><span class="small">☎ 052-584-1106。A5 黑毛和牛、活伊勢龍蝦、活鮑魚眼前現煎，18 樓景觀；有「記念日方案」含香檳與紀念餐盤。<strong>10/12 那晚選這家＝從百貨直接搭電梯上樓，長輩幼兒零額外移動</strong>。另有 Chef's Table ¥70,000（4 名起，含幼兒最多 8 名）。</span></td>
 <td class="nw"><strong>無休</strong><br>17:30–21:30<br>（L.O. 20:30）</td>
-<td class="n">¥172,000<br><strong>≈ NT$35,300</strong><br><span class="small">個室晚餐 ¥28,000×6<br>＋幼兒 ¥4,000<br>（升 ¥36,000 檔 ≈ NT$45,100）</span></td>
+<td class="n">¥172,000<br><strong>≈ NT$35,300</strong><br><span class="small">¥28,000×6＋幼兒 ¥4,000<br>（¥36,000 檔 ≈ NT$45,100）</span></td>
 <td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">◎</span></td><td class="nw c"><span class="yes">○</span></td>
 <td class="nw c"><span class="vote">☐</span></td>
 </tr>
 
 <tr class="pick">
-<td class="nw"><strong>あつた蓬莱軒 松坂屋店</strong><br><span class="small jp">あつた蓬莱軒 松坂屋店</span><span class="badge b-a">走路可到</span></td>
-<td class="nw"><strong>從飯店散步 8–10 分</strong><br><span class="small">松坂屋名古屋店南館 10F<br>矢場町站步行 1 分<br>（不用搭車，也在<br>10/10 購物路線上）</span></td>
-<td><span class="tag y">有個室，官方定位為「接待等特別席次」</span><span class="tag y">明列「歡迎攜帶兒童」</span><br><span class="small">明治 6 年（1873）創業，<strong>「ひつまぶし」就是蓬莱軒的註冊商標</strong>——要說「名古屋最具代表性的餐廳」，這家比任何米其林店都更有資格。除了單點鰻魚料理，<strong>另有會席料理（鰻魚會席／季節會席），需 3 天前預約</strong>，加服務費 10%。☎ 050-5493-0438（或松坂屋店直撥）。<br>週六日祝 11:00–20:30；平日為二部制。</span></td>
+<td class="nw"><strong>あつた蓬莱軒 松坂屋店</strong><span class="badge b-a">走路可到</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw"><strong>從飯店散步 8–10 分</strong><br><span class="small">松坂屋名古屋店南館 10F<br>矢場町站步行 1 分<br>（就在 10/10 的購物路線上）</span></td>
+<td><span class="tag y">有個室，官方定位為「接待等特別席次」</span><span class="tag y">明列「歡迎攜帶兒童」</span><br><span class="small">明治 6 年（1873）創業，<strong>「ひつまぶし」就是蓬莱軒的註冊商標</strong>——要說「名古屋最具代表性的餐廳」，這家比任何米其林店都更有資格。除單點鰻魚料理，<strong>另有會席料理（鰻魚會席／季節會席），需 3 天前預約</strong>，加服務費 10%。☎ 050-5493-0438。週六日祝 11:00–20:30；平日為二部制。</span></td>
 <td class="nw">週二（需確認）<br>六日祝 11:00–20:30</td>
 <td class="n">會席 ≈ ¥108,900<br><strong>≈ NT$22,300</strong><br><span class="small">¥16,500×6＋服務費<br>單點鰻魚料理則<br>¥3,300–6,600／人</span></td>
 <td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
@@ -207,17 +350,8 @@ li{margin:3px 0}
 </tr>
 
 <tr>
-<td class="nw"><strong>料亭 河文</strong><br><span class="small jp">料亭 河文（かわぶん）</span></td>
-<td class="nw">東山線榮→伏見 1 站<br>轉鶴舞線 1 站丸之內<br>＋步行 5 分<br><span class="small">或計程車約 8 分</span></td>
-<td><span class="tag y">個室 7 間・2–20 名，可選椅子席／座椅子／掘炬燵</span><span class="tag y">未成年者「僅限個室使用」→ 我們本來就要個室</span><br><span class="small">☎ 052-222-7070（平日 12:00–17:30／六日祝 8:45–17:30）。<strong>1615 年創業，名古屋最古老的料亭</strong>。長輩座位彈性是全部選項裡最大的一家。<br>會席 ¥20,000（含稅 ¥22,000）。晚餐時段請電話確認。</span></td>
-<td class="nw">需電話確認</td>
-<td class="n">¥132,000<br><strong>≈ NT$27,100</strong><br><span class="small">含稅 ¥22,000×6</span></td>
-<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="qq">需問</span></td><td class="nw c"><span class="qq">需問</span></td>
-<td class="nw c"><span class="vote">☐</span></td>
-</tr>
-
-<tr>
 <td class="nw"><strong>錦輝茶寮</strong><br><span class="small jp">懐石和食 鉄板焼 錦輝茶寮</span><span class="badge b-a">走路可到</span></td>
+<td class="nw"><span class="t1">易</span></td>
 <td class="nw"><strong>從飯店散步 10 分</strong><br><span class="small">中區錦 3-10-20<br>榮站 1 號出口步行 5 分</span></td>
 <td><span class="tag y">有多間個室，個室確約方案 ¥8,000 起</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-972-7003。懷石與鐵板燒兩種都能點，另有「Premium 錦輝套餐」（伊勢龍蝦＋黑毛和牛菲力，全 8 品）。價格最平易、又不用搭車。<br>⚠️ <strong>週日與國定假日休 → 拿掉 10/13 之後，這家只剩 10/10 可用。</strong>最終入店 20:30。</span></td>
 <td class="nw">週日・祝日<br>17:30–22:00<br>最終入店 20:30</td>
@@ -228,8 +362,9 @@ li{margin:3px 0}
 
 <tr>
 <td class="nw"><strong>名駅 鉄板焼き 森本 XPremium</strong></td>
-<td class="nw">東山線<br>榮 → 名古屋 5 分<br>＋步行約 5 分<br><span class="small">サン・タウン名駅椿 北館 5F-B<br>（新幹線口側）</span></td>
-<td><span class="tag y">25 席・個室 4 間</span><span class="tag y">兒童同伴：無年齡限制</span><br><span class="small">☎ 052-446-8883。晚餐 16:00–23:00，時間最寬鬆。鐵板燒套餐 ¥9,900／Premium 套餐 ¥15,900／另有 Anniversary 套餐（A5 和牛）。<strong>「個室＋幼兒無限制＋鐵板燒＋名古屋站旁」同時成立、且最便宜的一家</strong>，10/12 的實用備案。</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">東山線榮→名古屋 5 分<br>＋步行約 5 分<br><span class="small">サン・タウン名駅椿 北館 5F-B<br>（新幹線口側）</span></td>
+<td><span class="tag y">25 席・個室 4 間</span><span class="tag y">兒童同伴：無年齡限制</span><br><span class="small">☎ 052-446-8883。晚餐 16:00–23:00，時間最寬鬆。鐵板燒套餐 ¥9,900／Premium ¥15,900／另有 Anniversary 套餐（A5 和牛）。<strong>「個室＋幼兒無年齡限制＋鐵板燒＋名古屋站旁」同時成立、且最便宜的一家</strong>。</span></td>
 <td class="nw">不定休<br>16:00–23:00</td>
 <td class="n">¥59,400–95,400<br><strong>≈ NT$12,200–19,600</strong><br><span class="small">¥9,900–15,900／人</span></td>
 <td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
@@ -237,9 +372,10 @@ li{margin:3px 0}
 </tr>
 
 <tr>
-<td class="nw"><strong>日本料理 呉竹</strong><br><span class="small jp">日本料理 呉竹／名古屋観光ホテル</span><span class="badge b-a">CP 值</span></td>
-<td class="nw">東山線<br><strong>榮 → 伏見 1 站</strong><br>＋步行約 3 分<br><span class="small">名古屋觀光飯店 2F</span></td>
-<td><span class="tag y">個室 2–6 名／<strong>7–12 名</strong>兩種 → 七人有專屬房型</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-231-2247。<strong>全年無休</strong>，晚餐 17:00–21:30（L.O. 21:00），平均 ¥8,500 起，桌位個室料 ¥3,000–6,000。有「記念日＆個室方案」。老牌名門飯店、長輩會喜歡的規格，<strong>價格與穩定度平衡最好的一家</strong>。<br>⚠️ 同飯店的鐵板燒「昇龍」個室只收 <strong>2–5 名</strong>，七人進不去；要鐵板燒得坐吧台。</span></td>
+<td class="nw"><strong>日本料理 呉竹</strong><br><span class="small jp">呉竹／名古屋観光ホテル</span><span class="badge b-a">CP 值</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">東山線<strong>榮→伏見 1 站</strong><br>＋步行約 3 分<br><span class="small">名古屋觀光飯店 2F</span></td>
+<td><span class="tag y">個室 2–6 名／<strong>7–12 名</strong>兩種 → 七人有專屬房型</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-231-2247。<strong>全年無休</strong>，晚餐 17:00–21:30（L.O. 21:00），平均 ¥8,500 起，桌位個室料 ¥3,000–6,000。有「記念日＆個室方案」。老牌名門飯店，<strong>價格與穩定度平衡最好的一家</strong>。<br>⚠️ 同飯店的鐵板燒「昇龍」個室只收 <strong>2–5 名</strong>，七人進不去。</span></td>
 <td class="nw"><strong>無休</strong><br>17:00–21:30</td>
 <td class="n">¥54,000 起<br><strong>≈ NT$11,100 起</strong><br><span class="small">¥8,500×6＋個室料</span></td>
 <td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
@@ -247,9 +383,10 @@ li{margin:3px 0}
 </tr>
 
 <tr>
-<td class="nw"><strong>日本料理 源氏</strong><br><span class="small jp">日本料理「源氏」／ヒルトン名古屋</span><span class="badge b-a">CP 值</span></td>
-<td class="nw">東山線<br><strong>榮 → 伏見 1 站</strong><br>＋步行 3 分<br><span class="small">希爾頓名古屋 3F</span></td>
-<td><span class="tag y">個室 4 間（定員 6–16 名）；<strong>因為你們有 6 位大人，¥10,000 個室費直接免除</strong></span><span class="tag y">輪椅可入</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-212-1151（9:00–20:00）。會席晚餐 ¥8,500 起；座敷個室 6 名×2 間。飯店等級服務，對長輩幼兒壓力最小。<br>⚠️ <strong>鐵板燒在這裡只有吧台區、不進個室</strong>；要個室就是會席。</span></td>
+<td class="nw"><strong>日本料理 源氏</strong><br><span class="small jp">源氏／ヒルトン名古屋</span><span class="badge b-a">CP 值</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">東山線<strong>榮→伏見 1 站</strong><br>＋步行 3 分<br><span class="small">希爾頓名古屋 3F</span></td>
+<td><span class="tag y">個室 4 間（定員 6–16 名）；<strong>因為有 6 位大人，¥10,000 個室費直接免除</strong></span><span class="tag y">輪椅可入</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-212-1151（9:00–20:00）。會席晚餐 ¥8,500 起；座敷個室 6 名×2 間。飯店等級服務，對長輩幼兒壓力最小。<br>⚠️ <strong>鐵板燒在這裡只有吧台區、不進個室</strong>；要個室就是會席。</span></td>
 <td class="nw">17:00–21:30<br>（L.O. 20:30）</td>
 <td class="n">¥51,000 起<br><strong>≈ NT$10,500 起</strong><br><span class="small">¥8,500×6、個室費免</span></td>
 <td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
@@ -257,18 +394,20 @@ li{margin:3px 0}
 </tr>
 
 <tr>
-<td class="nw"><strong>蔦茂</strong><br><span class="small jp">料亭 蔦茂（つたも）</span></td>
-<td class="nw">走到久屋大通<br>轉櫻通線 2 站國際中心<br>＋步行 4 分<br><span class="small">或計程車約 10 分</span></td>
-<td>全店僅 14 席（吧台 8＋個室 8）。<span class="tag n">未就學兒童原則上不可</span><span class="tag y">但「包場時可」，包場門檻 6 人起 → 七人符合</span><br><span class="small">☎ 052-526-6112（預約受付 11:00–17:00）。<strong>大正 2 年（1912）創業</strong>，原在榮住吉的老料亭，遷至那古野新店（有中庭）。晚席 18:00–22:00 要預約。板前割烹套餐 ¥16,000；個室確約方案約 ¥40,000。個室使用另加 10%。<br>⚠️ <strong>訂位時一定要講「幼兒同行、希望包場」</strong>，這是它唯一的關卡。</span></td>
-<td class="nw">週日<br>18:00–22:00</td>
-<td class="n">¥105,600<br><strong>≈ NT$21,600</strong><br><span class="small">¥16,000×6＋10%<br>（個室確約檔 ≈ NT$49,200）</span></td>
-<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="no">休</span></td>
+<td class="nw"><strong>料亭 河文</strong><br><span class="small jp">料亭 河文（かわぶん）</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">東山線榮→伏見轉<br>鶴舞線丸之內<br>＋步行 5 分<br><span class="small">或計程車約 8 分</span></td>
+<td><span class="tag y">個室 7 間・2–20 名，可選椅子席／座椅子／掘炬燵</span><span class="tag y">未成年者「僅限個室使用」→ 我們本來就要個室</span><br><span class="small">☎ 052-222-7070（平日 12:00–17:30／六日祝 8:45–17:30）。<strong>1615 年創業，名古屋最古老的料亭</strong>。<strong>長輩座位彈性是全部選項裡最大的一家。</strong>會席 ¥20,000（含稅 ¥22,000）。晚餐時段請電話確認。</span></td>
+<td class="nw">需電話確認</td>
+<td class="n">¥132,000<br><strong>≈ NT$27,100</strong><br><span class="small">含稅 ¥22,000×6</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="qq">需問</span></td><td class="nw c"><span class="qq">需問</span></td>
 <td class="nw c"><span class="vote">☐</span></td>
 </tr>
 
 <tr>
 <td class="nw"><strong>鉄板料理 久坊</strong><br><span class="small jp">鉄板料理 久坊（きゅうぼう）</span></td>
-<td class="nw">東山線榮→伏見 1 站<br>轉鶴舞線 1 站丸之內<br>＋步行 1–2 分<br><span class="small">或計程車約 8 分</span></td>
+<td class="nw"><span class="t1">易</span></td>
+<td class="nw">東山線榮→伏見轉<br>鶴舞線丸之內<br>＋<strong>步行 1–2 分</strong><br><span class="small">或計程車約 8 分</span></td>
 <td>30 席（吧台 12＋個室 18）。<span class="tag q">桌位個室 3 間，<strong>每間 4 人用</strong> → 七人需併房或坐吧台，務必先問</span><span class="tag q">幼兒需確認</span><br><span class="small">☎ 052-223-0050。牛排套餐 ¥9,980 起；個室每人加收 ¥550。週一–六 17:00–23:00、週日祝 17:00–22:00。<strong>價格好、出站即到，但七人擠不進單一個室是它的弱點。</strong></span></td>
 <td class="nw">不定休<br>17:00–23:00</td>
 <td class="n">約 ¥63,700<br><strong>≈ NT$13,100</strong><br><span class="small">¥9,980×6＋¥550×7</span></td>
@@ -276,15 +415,49 @@ li{margin:3px 0}
 <td class="nw c"><span class="vote">☐</span></td>
 </tr>
 
+<tr>
+<td class="nw"><strong>蔦茂</strong><br><span class="small jp">料亭 蔦茂（つたも）</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">走到久屋大通轉<br>櫻通線 2 站國際中心<br>＋步行 4 分<br><span class="small">或計程車約 10 分</span></td>
+<td>全店僅 14 席（吧台 8＋個室 8）。<span class="tag n">未就學兒童原則上不可</span><span class="tag y">但「包場時可」，包場門檻 6 人起 → 七人符合</span><br><span class="small">☎ 052-526-6112（預約受付 11:00–17:00）。<strong>大正 2 年（1912）創業</strong>，原在榮住吉的老料亭，遷至那古野新店（有中庭）。晚席 18:00–22:00 要預約。板前割烹套餐 ¥16,000；個室確約方案約 ¥40,000。個室另加 10%。<br>⚠️ <strong>訂位時一定要講「幼兒同行、希望包場」</strong>，這是它唯一的關卡。週日休。</span></td>
+<td class="nw">週日<br>18:00–22:00</td>
+<td class="n">¥105,600<br><strong>≈ NT$21,600</strong><br><span class="small">¥16,000×6＋10%<br>（個室確約檔 ≈ NT$49,200）</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="no">休</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><strong>鉄板焼 匠</strong><br><span class="small jp">匠／ストリングスホテル名古屋</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">東山線榮→名古屋轉<br>あおなみ線ささしまライブ 1 站<br><span class="small">或名古屋站櫻通口步行 10 分<br>／計程車約 13 分</span></td>
+<td><span class="tag y">19 席・個室 2 間・輪椅可入</span><span class="tag q">幼兒需確認</span><br><span class="small">個室確約【琥珀】¥17,600（含稅、服務費另計）；平日個室確約晚餐 ¥22,000＋個室料 ¥12,650。服務費 15%、個室料 ¥10,000–12,650。另有開業 10 週年套餐「至高」平日 ¥41,800／六日祝 ¥44,000。飯店規格服務。</span></td>
+<td class="nw">需確認</td>
+<td class="n">約 ¥132,400<br><strong>≈ NT$27,200</strong><br><span class="small">¥17,600×6＋15%<br>＋個室料</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
+<tr>
+<td class="nw"><strong>あつた蓬莱軒 本店</strong><br><span class="small jp">本店（蓬莱陣屋）</span></td>
+<td class="nw"><span class="t2">中</span></td>
+<td class="nw">名城線<strong>榮→熱田神宮傳馬町<br>直達約 15 分</strong>＋步行<br><span class="small">或計程車約 20 分</span></td>
+<td><span class="tag y">有個室＋會席料理（3 天前要預約）</span><span class="tag y">椅子席可事先指定</span><br><span class="small">☎ 052-671-8686。<strong>本店才是「陣屋」，老宅氛圍最好</strong>，比松坂屋店更有味道。<br>已確認價目：一半ひつまぶし ¥6,600、上長燒定食 ¥5,700、特上鰻丼 ¥5,700、長燒定食 ¥4,100、鰻丼 ¥3,300、うまき定食 ¥3,400。<br>⚠️ <strong>10/14 去熱田神宮那天正好是週三公休</strong>，所以只能 10/10 或 10/12 專程過來。</span></td>
+<td class="nw">週三・第2・4週四<br>16:30–20:30</td>
+<td class="n">會席 ≈ ¥108,900<br><strong>≈ NT$22,300</strong><br><span class="small">¥16,500×6＋服務費 10%</span></td>
+<td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td><td class="nw c"><span class="yes">○</span></td>
+<td class="nw c"><span class="vote">☐</span></td>
+</tr>
+
 </tbody>
 </table></div>
 
-<h2>四、我的三個建議組合</h2>
+<h2>四、我的四個建議組合</h2>
 
 <div class="scroller"><table>
 <thead><tr><th class="nw">情境</th><th class="nw">日期・時間</th><th class="nw">餐廳</th><th>理由</th><th class="n">約略</th></tr></thead>
 <tbody>
-<tr class="pick"><td class="nw"><strong>要最有紀念性</strong><br><span class="small">（我的首推）</span></td><td class="nw"><strong>10/10（六）<br>18:00</strong></td><td class="nw"><strong>八勝館</strong><br><span class="small">米其林 ★★</span></td><td>唯一同時做到「星級 ＋ 12 間面庭園個室可排椅子席 ＋ 明列幼兒餐與嬰幼兒座椅 ＋ 本來就承辦長壽宴」的一家。國家重要文化財的建築、夜間得獎點燈，70 歲慶生的規格感無可取代。<strong>17:30 從飯店叫兩台計程車，門到門 20–25 分、全程不用走路</strong>——對長輩其實比走 10 分鐘去別家更輕鬆。</td><td class="n"><strong>NT$37,900</strong></td></tr>
+<tr class="pick"><td class="nw"><strong>要最有紀念性</strong><br><span class="small">（我的首推）</span></td><td class="nw"><strong>10/10（六）<br>18:00</strong></td><td class="nw"><strong>八勝館</strong><br><span class="small">米其林 ★★</span></td><td>唯一同時做到「星級 ＋ 12 間面庭園個室可排椅子席 ＋ 明列幼兒餐與嬰幼兒座椅 ＋ 本來就承辦長壽宴」的一家。國家重要文化財的建築、夜間得獎點燈，70 歲慶生的規格感無可取代。17:30 從飯店叫兩台計程車，<strong>門到門 20–25 分、全程不用走路</strong>。</td><td class="n"><strong>NT$37,900</strong></td></tr>
+<tr class="pick"><td class="nw"><strong>要星級但想<br>省交通與預算</strong></td><td class="nw"><strong>10/10（六）<br>18:00</strong></td><td class="nw"><strong>明庵</strong><br><span class="small">米其林 ★★</span></td><td>二星裡交通最方便的一家 —— 飯店旁的榮町站搭名鐵瀬戸線直達森下，再走 3 分鐘，不用轉乘。而且就在德川町，<strong>10/10 下午你們本來就會去德川園，同一區</strong>。約 ¥15,000/人，只有八勝館的一半。代價：11 席小店，個室與幼兒規定都要先電話確認。</td><td class="n"><strong>NT$18,500 起</strong></td></tr>
 <tr class="pick"><td class="nw"><strong>要最輕鬆</strong></td><td class="nw"><strong>10/12（一·祝）<br>18:00</strong></td><td class="nw"><strong>鉄板焼 那古亭</strong><br><span class="small">萬豪 18F</span></td><td>那晚本來就在名古屋站逛百貨，逛完直接搭電梯上 18 樓，<strong>長輩和幼兒完全不必再移動、全程室內</strong>。個室 5–10 名剛好、有兒童餐、鐵板燒的現場表演對 3 歲小孩也是娛樂。全年無休、最好訂。</td><td class="n"><strong>NT$35,300</strong></td></tr>
 <tr class="pick"><td class="nw"><strong>要控制預算</strong></td><td class="nw">10/10（六）或<br>10/12（一·祝）<br>18:00</td><td class="nw"><strong>あつた蓬莱軒<br>松坂屋店</strong></td><td>名古屋最具代表性的老店（1873 年創業、ひつまぶし 的商標持有者），有個室、明列歡迎兒童，而且<strong>從飯店散步 8–10 分就到、完全不用搭車</strong>。點會席約 NT$22,300，單點鰻魚料理甚至只要 NT$5,000 上下。長輩多半也會更想吃這個。</td><td class="n"><strong>NT$22,300</strong><br><span class="small">單點更低</span></td></tr>
 </tbody>
@@ -302,13 +475,14 @@ li{margin:3px 0}
 <li><strong>是 70 歲生日慶祝</strong>（問能否安排祝賀擺盤或蛋糕）　<span class="jp mono">古希のお祝いです。お祝いのお料理やケーキのご相談は可能でしょうか</span></li>
 <li><strong>食物過敏／不吃的食材</strong>　<span class="jp mono">アレルギーがございます</span></li>
 </ol>
+<p class="small">星級小店（明庵、いまい、花いち、ことほぎ、せき根、八泉、土方、にい留）的重點是<strong>第 1 和第 4 項</strong>——很多完全預約制的小店會直接婉拒未就學兒童，一定要在第一通電話就講清楚，不要等到現場。</p>
 </div>
 
 <div class="box">
 <p><strong>怎麼打這通電話：</strong>米其林星級店幾乎只接受日文電話。三個做法，由省力到費力：</p>
 <ul>
-<li><strong>請飯店櫃台代打</strong>（皇家公園飯店名古屋標誌 <span class="mono">+81 52-269-1118</span>）—— 最省事，而且飯店代訂時餐廳通常更願意通融幼兒。可以先用 email 或訂房平台訊息請他們協助。</li>
-<li><strong>線上訂位平台</strong>—— 八勝館（一休.com 115057）、土方（一休.com 121041）、錦輝茶寮、那古亭、蔦茂 都有線上方案，可先下單再補特殊需求。缺點是「幼兒同行」通常要另外電話確認。</li>
+<li><strong>請飯店櫃台代打</strong>（皇家公園飯店名古屋標誌 <span class="mono">+81 52-269-1118</span>）—— 最省事，而且飯店代訂時餐廳通常更願意通融幼兒。可以先用 email 或訂房平台訊息請他們協助。<strong>ことほぎ（只有手機號碼）、にい留（電話未公開）、おおたに 這幾家特別建議走這條路。</strong></li>
+<li><strong>線上訂位平台</strong>—— 八勝館（一休.com 115057）、土方（121041）、尾頭橋すみや（110050）、錦輝茶寮（116632）、那古亭、蔦茂、久坊 都有線上方案，可先下單再補特殊需求。缺點是「幼兒同行」通常要另外電話確認。</li>
 <li><strong>自己打</strong>—— 日本時間 9:00–17:00（八勝館、蔦茂的受付時間都在這區間）。</li>
 </ul>
 </div>
@@ -318,7 +492,8 @@ li{margin:3px 0}
 <ul class="small">
 <li><strong>八勝館</strong>：前 2 個營業日起，減人或取消收 30%；當日 100%。<strong>只接受電話取消</strong>，用表單或 FAX 取消不算。</li>
 <li><strong>久坊</strong>：前一日前取消；當日取消可能收 100%。</li>
-<li><strong>那古亭・源氏・呉竹</strong>：飯店系統，依方案而定，通常前 1–3 日。</li>
+<li><strong>那古亭・源氏・呉竹・匠</strong>：飯店系統，依方案而定，通常前 1–3 日。</li>
+<li><strong>明庵・尾頭橋すみや・しんすけ</strong>：遲到或中途離席可能導致部分菜色無法提供；廣範圍過敏或挑食可能被拒訂。</li>
 <li><strong>錦輝茶寮</strong>：最終入店 20:30，遲到會影響套餐出菜。</li>
 </ul>
 </div>
@@ -327,8 +502,8 @@ li{margin:3px 0}
 <div class="scroller"><table>
 <thead><tr><th class="nw">若選</th><th>當天行程怎麼改</th></tr></thead>
 <tbody>
-<tr><td class="nw"><strong>10/10（六）</strong></td><td>德川園 13:30–15:00 走完就<strong>直接回榮</strong>，16:30 進房換衣服，17:30 出門。<strong>原訂下午的「榮四大百貨」購物挪到 10/12 傍晚或 10/14 從大須回來後</strong>；當晚不排 Oasis 21 夜間點燈。<br><span class="small">若選蓬莱軒松坂屋店或錦輝茶寮，則購物不用挪 —— 兩家都在榮的購物路線上，逛到 17:30 直接走過去就好。</span></td></tr>
-<tr><td class="nw"><strong>10/12（一·祝）</strong></td><td>則武區行程完全照舊。16:30 東山線龜島→名古屋站，<strong>把逛街壓縮成高島屋＋名鐵百貨兩家</strong>，18:00 入席。若選那古亭就直接在同一棟樓上，最順。原訂站內「うまいもん通り」晚餐取消。</td></tr>
+<tr><td class="nw"><strong>10/10（六）</strong></td><td>德川園 13:30–15:00 走完就<strong>直接回榮</strong>，16:30 進房換衣服，17:30 出門。<strong>原訂下午的「榮四大百貨」購物挪到 10/12 傍晚或 10/14 從大須回來後</strong>；當晚不排 Oasis 21 夜間點燈。<br><span class="small">例外一：選<strong>蓬莱軒松坂屋店或錦輝茶寮</strong>，購物完全不用挪 —— 兩家都在榮的購物路線上，逛到 17:30 直接走過去。<br>例外二：選<strong>明庵</strong>，可以從德川園直接過去（同一區），連回飯店都不用 —— 但要先在飯店換好衣服再出門，或接受便裝。</span></td></tr>
+<tr><td class="nw"><strong>10/12（一·祝）</strong></td><td>則武區行程完全照舊。16:30 東山線龜島→名古屋站，<strong>把逛街壓縮成高島屋＋名鐵百貨兩家</strong>，18:00 入席。若選那古亭或森本就在名古屋站旁，最順。原訂站內「うまいもん通り」晚餐取消。</td></tr>
 </tbody>
 </table></div>
 
@@ -341,8 +516,8 @@ li{margin:3px 0}
 </div>
 
 <div class="foot">
-資料來源（皆為 2026-09-21 實查）：ミシュランガイド愛知・岐阜・三重 2019 特別版掲載店一覧（e宿.com 彙整，含三星 2 軒／二星 9 軒／一星 34 軒之愛知名單，2026 年仍為最新版）、八勝館官網（料金表・お部屋・お子様向けお食事・ご予約）與官方 Instagram、京都吉兆官網名古屋店頁、一休.com レストラン（八勝館 115057／京都吉兆名古屋店 115273／土方 121041／錦輝茶寮 116632／那古亭 100940／蔦茂 151589／久坊 110699／名古屋観光ホテル 104539）、名古屋マリオットアソシアホテル官網（鉄板焼那古亭・個室のご案内・メニュー）、ヒルトン名古屋官網與 HPCJ レストランプラン、名古屋観光ホテル官網（呉竹・昇龍・個室プラン）、あつた蓬莱軒官網（會席・店舗一覧・ご予約について）、THE KAWABUN NAGOYA／料亭河文官網、蔦茂官網、錦輝茶寮官網、PayPay グルメ／ぐるなび／ヒトサラ／ホットペッパー之席次與兒童同伴規定欄。<br>
-¥1 ≈ NT$0.205。估價含稅與服務費（已標註者），不含酒水。交通時間為地圖估算，計程車費用依實際里程與時段變動。<strong>營業時間、公休日、價格與兒童規定出發前務必再電話確認</strong>——星級小店的「不定休」是真的不定，且多為完全預約制。標示「需確認」者表示查無公開資訊，非表示不可行。
+資料來源（皆為 2026-09-21 實查）：ミシュランガイド愛知・岐阜・三重 2019 特別版掲載店一覧（e宿.com 彙整之愛知名單：三星 2 軒／二星 9 軒／一星 34 軒，2026 年仍為最新版）、八勝館官網（料金表・お部屋・お子様向けお食事・ご予約）與官方 Instagram、京都吉兆官網名古屋店頁、一休.com レストラン（八勝館 115057／京都吉兆名古屋店 115273／土方 121041／尾頭橋すみや 110050／錦輝茶寮 116632／那古亭 100940／蔦茂 151589／久坊 110699／鉄板焼匠 105640／名古屋観光ホテル 104539）、ぐるなび・ヒトサラ・ホットペッパー・Retty・PayPay グルメ・Yahoo!マップ之席次・個室・兒童同伴與交通欄（明庵／せき根／味処もちづき／味処おおたに／味感ことほぎ／板前割烹花いち／いまい／南山吉扇／懐石八泉）、味処おおたに官網、日本料理いまい官方 Instagram、名古屋マリオットアソシアホテル官網（鉄板焼那古亭・個室のご案内・メニュー）、ヒルトン名古屋官網與 HPCJ レストランプラン、名古屋観光ホテル官網（呉竹・昇龍・個室プラン）、あつた蓬莱軒官網（本店會席・店舗一覧・ご予約について）、THE KAWABUN NAGOYA／料亭河文官網、蔦茂官網、錦輝茶寮官網、ストリングスホテル名古屋官網、OMAKASE JapanEatinerary（割烹しんすけ・尾頭橋すみや・明庵之預約規定）。<br>
+¥1 ≈ NT$0.205。估價含稅與服務費（已標註者），不含酒水；未標明幼兒價者表示需另詢。交通時間為地圖與路線估算，計程車費用依實際里程與時段變動。<strong>營業時間、公休日、價格與兒童規定出發前務必再電話確認</strong>——星級小店的「不定休」是真的不定，且多為完全預約制。標示「需確認」者表示查無公開資訊，非表示不可行。
 </div>
 
 </div>
