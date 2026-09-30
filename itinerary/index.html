@@ -2,58 +2,136 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>名古屋六天五夜行程｜2026/10/09–10/14</title>
 <style>
 :root{
   --ink:#1a1d21; --muted:#5c6470; --line:#dfe3e8; --bg:#ffffff; --soft:#f6f7f9;
   --a:#2f6f8f; --a-soft:#eaf2f6; --warn:#8a4b1a; --warn-soft:#fdf3e7;
   --ok:#2c6a4a; --ok-soft:#eaf4ee; --opt:#6b4d8f; --opt-soft:#f1ecf7;
-  --shop:#9a4a72; --shop-soft:#faedf4;
-  --red:#a3342a; --red-soft:#fbeceb;
+  --shop:#9a4a72; --shop-soft:#faedf4; --red:#a3342a; --red-soft:#fbeceb;
+  --gb:#3f7a3a; --gb-soft:#eef6ec;
 }
 *{box-sizing:border-box}
 body{font-family:"Noto Sans TC","Microsoft JhengHei","Segoe UI",sans-serif;
   color:var(--ink); background:var(--soft); margin:0; line-height:1.65; font-size:15px}
-.wrap{max-width:1020px; margin:0 auto; background:var(--bg); padding:44px 52px 64px}
+.wrap{max-width:1040px; margin:0 auto; background:var(--bg); padding:40px 48px 64px}
 h1{font-size:27px; margin:0 0 4px}
-.sub{color:var(--muted); font-size:13.5px; margin-bottom:26px}
-h2{font-size:19px; margin:40px 0 12px; padding-bottom:7px; border-bottom:2px solid var(--ink)}
-h3{font-size:15.5px; margin:24px 0 8px; color:var(--a)}
+.sub{color:var(--muted); font-size:13.5px; margin-bottom:18px}
+h2{font-size:19px; margin:44px 0 14px; padding-bottom:7px; border-bottom:2px solid var(--ink); scroll-margin-top:60px}
+h3{font-size:15.5px; margin:22px 0 8px; color:var(--a)}
+a{color:var(--a)}
 table{width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:14px}
 th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
 th{background:var(--soft); font-weight:600}
-th.nw,td.nw{white-space:nowrap}
+.nw{white-space:nowrap}
 td.n,th.n{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
-td.c,th.c{text-align:center}
 tr.pick td{background:var(--ok-soft)}
 tr.opt td{background:var(--opt-soft)}
-tr.shop td{background:var(--shop-soft)}
-.fix{color:var(--ok); font-weight:600}
-.op{color:var(--opt)}
-.sh{color:var(--shop); font-weight:600}
-.ok-badge{display:inline-block; background:var(--ok); color:#fff; font-size:11px; padding:2px 9px; border-radius:3px; vertical-align:2px; margin-left:6px}
-.shop-badge{display:inline-block; background:var(--shop); color:#fff; font-size:11px; padding:2px 9px; border-radius:3px; vertical-align:2px; margin-left:6px}
-.tag{display:inline-block; font-size:11px; padding:1px 7px; border-radius:10px;
-  background:var(--a-soft); color:var(--a); margin-left:5px; vertical-align:1px; white-space:nowrap}
-.tag.pick{background:var(--ok-soft); color:var(--ok)}
+tr.gb td{background:var(--gb-soft)}
+.small{font-size:13px; color:var(--muted)}
+.mono{font-family:"Consolas","Courier New",monospace; font-size:13px}
+ul,ol{padding-left:20px; margin:6px 0} li{margin:3px 0}
+
+/* badges */
+.b{display:inline-block; font-size:11px; padding:1px 8px; border-radius:3px; vertical-align:2px; margin-left:6px; white-space:nowrap; font-weight:600}
+.b.ok{background:var(--ok); color:#fff}
+.b.todo{background:#c9772e; color:#fff}
+.b.gb{background:var(--gb); color:#fff}
+.b.no{background:#9aa1aa; color:#fff}
+.tag{display:inline-block; font-size:11px; padding:1px 7px; border-radius:10px; background:var(--a-soft); color:var(--a); margin-left:5px; vertical-align:1px; white-space:nowrap}
 .tag.free{background:var(--ok-soft); color:var(--ok)}
 .tag.hot{background:var(--warn-soft); color:var(--warn)}
-.box{border-left:4px solid var(--a); background:var(--a-soft); padding:12px 16px; margin:14px 0; border-radius:0 4px 4px 0}
+
+/* boxes */
+.box{border-left:4px solid var(--a); background:var(--a-soft); padding:12px 16px; margin:14px 0; border-radius:0 5px 5px 0}
 .box.warn{border-color:#c9772e; background:var(--warn-soft)}
 .box.ok{border-color:#3d8a63; background:var(--ok-soft)}
-.box.opt{border-color:#8b6db3; background:var(--opt-soft)}
+.box.gb{border-color:var(--gb); background:var(--gb-soft)}
 .box.shop{border-color:#b3608c; background:var(--shop-soft)}
 .box p{margin:5px 0}
-ul{padding-left:20px; margin:6px 0}
-li{margin:3px 0}
-.small{font-size:13px; color:var(--muted)}
-.mono{font-family:"Consolas","Courier New",monospace; font-size:13.5px}
-.day{border:1px solid var(--line); border-radius:6px; margin:16px 0; overflow:hidden}
-.day-h{background:#eef1f4; padding:11px 16px; font-weight:600; border-bottom:1px solid var(--line)}
-.day-h .zone{font-weight:400; color:var(--muted); font-size:13px; margin-left:8px}
+
+/* sticky nav */
+.nav{position:sticky; top:0; z-index:5; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line);
+  margin:0 -48px 18px; padding:8px 48px; display:flex; flex-wrap:wrap; gap:6px}
+.nav a{font-size:12.5px; text-decoration:none; padding:3px 10px; border-radius:12px; background:var(--soft); color:var(--ink); border:1px solid var(--line)}
+.nav a:hover{background:var(--a-soft)}
+
+/* key facts */
+.facts{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:6px 0 10px}
+.fact{border:1px solid var(--line); border-radius:6px; padding:10px 12px; background:#fff}
+.fact .k{font-size:11.5px; color:var(--muted)}
+.fact .v{font-weight:700; font-size:14.5px; line-height:1.4}
+.fact .d{font-size:12px; color:var(--muted)}
+
+/* at-a-glance day cards */
+.glance{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+.gc{border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column}
+.gc .top{padding:9px 12px; background:#eef1f4; display:flex; justify-content:space-between; align-items:baseline}
+.gc .top .dt{font-weight:700; font-size:15px}
+.gc .top .dw{font-size:12px; color:var(--muted)}
+.gc.key .top{background:#e3efe7}
+.gc .body{padding:10px 12px; font-size:13.5px; flex:1}
+.gc .theme{font-weight:700; margin-bottom:6px}
+.gc .row{display:flex; gap:6px; margin:3px 0}
+.gc .ic{flex:0 0 20px; text-align:center}
+.gc .foot2{border-top:1px dashed var(--line); padding:7px 12px; font-size:12px; color:var(--muted); background:#fbfbfc}
+.i-spot{color:var(--ok)} .i-shop{color:var(--shop)} .i-food{color:#b5651d} .i-opt{color:var(--opt)} .i-go{color:var(--a)}
+
+/* day detail */
+.day{border:1px solid var(--line); border-radius:8px; margin:18px 0; overflow:hidden; scroll-margin-top:60px}
+.day-h{background:#eef1f4; padding:11px 16px; border-bottom:1px solid var(--line); display:flex; flex-wrap:wrap; gap:4px 12px; align-items:baseline}
+.day-h .dt{font-weight:700; font-size:16px}
+.day-h .th{font-weight:600}
+.day-h .zone{color:var(--muted); font-size:13px}
+.day.key .day-h{background:#e3efe7}
 .day-b{padding:12px 16px}
+.tl{display:grid; grid-template-columns:78px 22px 1fr; gap:0 6px; margin:4px 0}
+.tl > div{padding:6px 0; border-bottom:1px dotted #e7eaee}
+.tl .t{font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink)}
+.tl .ic{text-align:center}
+.tl .c .s{font-size:13px; color:var(--muted); display:block; margin-top:2px}
+.tl .hard .t,.tl .hard{color:var(--red)}
+.notes{margin-top:8px; font-size:13px; color:var(--muted)}
+.notes li{margin:2px 0}
+.legend{font-size:12.5px; color:var(--muted); margin:6px 0 4px}
+.legend span{margin-right:12px}
+
+/* plan compare */
+.cmp{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:10px 0}
+.cmp > div{border:1px solid var(--line); border-radius:6px; padding:10px 12px; background:#fff; font-size:13.5px}
+.cmp h4{margin:0 0 6px; font-size:14px}
+
+/* checklist */
+.chk{list-style:none; padding-left:0}
+.chk li{padding:7px 0 7px 28px; position:relative; border-bottom:1px dotted var(--line)}
+.chk li:before{content:"☐"; position:absolute; left:4px; top:5px; font-size:16px; color:var(--muted)}
+.chk li.done:before{content:"☑"; color:var(--ok)}
+.chk .when{display:inline-block; min-width:74px; font-weight:700; color:var(--warn)}
+
+details{border:1px solid var(--line); border-radius:6px; margin:10px 0; padding:0 12px; background:#fff}
+details > summary{cursor:pointer; padding:9px 0; font-weight:600}
+details[open] > summary{border-bottom:1px solid var(--line); margin-bottom:8px}
+
 .foot{margin-top:40px; padding-top:14px; border-top:1px solid var(--line); font-size:11.5px; color:var(--muted)}
-@media print{body{background:#fff} .wrap{padding:0; max-width:none} h2{page-break-after:avoid} table,.day{page-break-inside:avoid}}
+
+@media (max-width:760px){
+  .wrap{padding:22px 16px 48px}
+  .nav{margin:0 -16px 14px; padding:8px 16px}
+  .facts{grid-template-columns:1fr 1fr}
+  .glance{grid-template-columns:1fr}
+  .cmp{grid-template-columns:1fr}
+  .tl{grid-template-columns:62px 20px 1fr}
+  table{font-size:13px}
+}
+@media print{
+  body{background:#fff; font-size:13.5px}
+  .wrap{padding:0; max-width:none}
+  .nav{display:none}
+  h2{page-break-after:avoid}
+  .gc,.day,.box,tr{page-break-inside:avoid}
+  .glance{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
@@ -61,345 +139,415 @@ li{margin:3px 0}
 
 <h1>名古屋 六天五夜行程</h1>
 <div class="sub">
-2026/10/09（五）– 10/14（三）｜機票飯店 4 大 1 小（幼兒 3 歲），日本會合共 <strong>6 大 1 小</strong><br>
-榮站商圈同一間飯店住五晚，不換飯店、不租車、<strong>全程名古屋市區</strong>｜營業資訊為 2026-09-14 實查，¥1 ≈ NT$0.205<br>
-<strong>2026-09-24 更新：70 歲慶生晚餐已訂位 —— 料亭 八勝館（米其林 ★★），10/10（六）18:30。</strong>10/10 下午的榮購物已改為「傍晚速逛 ＋ 10/13 晚間補主力」。<br>
-配套文件 →　<a href="https://davy10281028.github.io/nagoya-dinner-pick/" style="color:#2f6f8f"><strong>慶生晚餐 已訂位確認頁（八勝館）</strong></a>
+2026/10/09（五）– 10/14（三）｜台灣出發 4 大 1 小（幼兒 3 歲），日本會合共 <strong>6 大 1 小</strong>｜榮・同一間飯店住五晚、不租車、全程名古屋市區<br>
+2026-09-30 更新：版面重整（一覽卡＋時間軸）、新增<a href="#ghibli"><strong>吉卜力公園最新票況與 Plan B</strong></a>｜配套：<a href="https://davy10281028.github.io/nagoya-dinner-pick/">慶生晚餐 已訂位確認頁（八勝館）</a>
 </div>
 
-<div class="box ok">
-<p><strong>行程設計：一天一區、零轉乘、每天都有逛街。</strong></p>
-<p>吉卜力訂不到、鈴鹿太遠都已放棄。改成把原本散落的備案<strong>按地理區塊集中</strong>，每天鎖定一個區域走完，並在每個區域各配一個名古屋著名購物點。</p>
-<p><strong>五個購物區：</strong>榮四大百貨＋地下街（<strong>10/10 傍晚速逛 ＋ 10/13 晚間補主力</strong>）→ ららぽーと みなとアクルス（10/11）→ イオンモール 則武 ＋ 名古屋站地下街（10/12）→ 大須商店街（10/14）</p>
-<p>而且 <strong>10/10、10/11、10/12 三天全程都在名古屋市營地鐵範圍內</strong>，一張「ドニチエコきっぷ」¥620 就吃到底（週六日祝限定，剛好這三天）。</p>
+<nav class="nav">
+  <a href="#glance">一覽</a><a href="#ghibli">吉卜力</a><a href="#d09">10/09</a><a href="#d10">10/10</a><a href="#d11">10/11</a><a href="#d12">10/12</a><a href="#d13">10/13</a><a href="#d14">10/14</a><a href="#booking">訂單</a><a href="#transit">交通</a><a href="#budget">預算</a><a href="#todo">待辦</a><a href="#shops">店家</a>
+</nav>
+
+<div class="facts">
+  <div class="fact"><div class="k">去程</div><div class="v">JX838　10/09 14:55</div><div class="d">桃園 T1 → 18:45 中部 T1</div></div>
+  <div class="fact"><div class="k">回程</div><div class="v">JX839　10/14 19:55</div><div class="d">中部 T1 → 22:00 桃園 T1</div></div>
+  <div class="fact"><div class="k">飯店（5 晚・2 房）</div><div class="v">皇家公園標誌 名古屋</div><div class="d">榮 4-1-1 中日大樓｜15:00 入／11:00 退</div></div>
+  <div class="fact"><div class="k">已訂的兩件大事</div><div class="v">10/10 八勝館慶生<br>10/13 樂高＋SEA LIFE</div><div class="d">其餘景點都現場買票</div></div>
 </div>
 
-<h2>一、已確認訂單</h2>
-<table>
-<tbody>
-<tr><th class="nw">去程</th><td><strong>星宇 JX838</strong>　10/09（五）14:55 桃園 T1 → 18:45 中部機場 T1　A330-900 寬體<span class="ok-badge">已確認</span></td></tr>
-<tr><th class="nw">回程</th><td><strong>星宇 JX839</strong>　10/14（三）19:55 中部機場 T1 → 22:00 桃園 T1　A330-900 寬體<span class="ok-badge">已確認</span></td></tr>
-<tr><th class="nw">飯店</th><td><strong>皇家公園飯店名古屋標誌</strong>（The Royal Park Hotel Iconic Nagoya）<span class="ok-badge">已確認</span><br>
-<span class="mono">4-1-1 Sakae, 中區, 460-0008 名古屋市　／　+81 52-269-1118</span><br>
-<span class="mono">訂單 1688901846098514　確認 1688901162672947</span><br>
-高級雙床房［現代概念］× 2 間（2 張單人床、29m²、29–31 樓）｜10/09–10/14，5 晚 2 房｜15:00 入住／<strong>11:00 前退房</strong>｜早餐未含（TWD 794／人）</td></tr>
-<tr><th class="nw">樂高門票</th><td><strong>樂高樂園 1 日券 ＋ SEA LIFE 1 日券</strong>　10/13（二）　6 大 1 童<span class="ok-badge">已購 NT$8,866</span><br><span class="small">Klook 早鳥：3 張成人單買 NT$4,005 ＋ 1 組 4 人團 NT$4,861。比官方牌價（¥43,900）省 NT$150</span></td></tr>
-<tr><th class="nw">慶生晚餐</th><td><strong>料亭 八勝館</strong>（はっしょうかん／米其林 <strong>★★</strong>）　<strong>10/10（六）18:30 入席</strong>　6 大 1 小<span class="ok-badge">已訂位</span><br>
-<span class="mono">確認番號 XDQZT7　／　訂位名 Hsun Chen　／　Category 懷石　／　Purpose Birthday（Family）</span><br>
-<span class="mono">〒466-0834 名古屋市昭和區廣路町石坂 29　／　+81 52-831-1585（受付 9:00–17:00）</span><br>
-大正 14 年創業、令和 2 年列為<strong>國家重要文化財</strong>，4,000 坪日本庭園；12 間面庭園榻榻米個室<strong>可安排椅子席</strong>，備有嬰幼兒座椅與兒童餐。<br>
-<strong>從飯店計程車門到門 20–25 分、全程不用走路</strong>（兩台約 ¥5,000–6,000）｜夜席 ¥30,000／¥35,000＋幼兒五角重 ¥5,000，估 <strong>≈ NT$37,900</strong></td></tr>
-</tbody>
-</table>
+<!-- ================= 一覽 ================= -->
+<h2 id="glance">一、六天一覽</h2>
+<div class="legend"><span class="i-spot">◆ 主景點</span><span class="i-shop">▣ 逛街</span><span class="i-food">● 餐</span><span class="i-opt">◇ 選擇性</span><span class="i-go">➜ 交通</span></div>
 
-<h2>二、行程總表</h2>
-<table>
-<thead><tr>
-<th class="nw">日期</th><th class="nw">區域</th><th><span class="fix">◆ 景點</span></th><th><span class="sh">▣ 逛街</span></th><th><span class="op">◇ 選擇性</span></th>
-</tr></thead>
-<tbody>
-<tr><td class="nw"><strong>10/09 五</strong></td><td class="nw">榮<br><span class="small">飯店周邊</span></td><td>抵達 18:45、Check-in、晚餐</td><td class="sh">サカエチカ地下街</td><td class="op">Oasis 21 夜間點燈</td></tr>
-<tr class="pick"><td class="nw"><strong>10/10 六</strong></td><td class="nw">名古屋城<br>→ 榮 → 八事</td><td>名古屋城 ＋ 金鯱橫丁<br><strong>德川園</strong><br><strong>18:30 八勝館 慶生晚餐</strong><span class="ok-badge">已訂</span></td><td class="sh"><strong>榮四大百貨 速逛</strong><br><span class="small">16:00–17:15，只挑三越／松坂屋<br>＋ サカエチカ地下街</span></td><td class="op">—<br><span class="small">晚餐約 21:00–21:30 散席，<br>當晚不加行程</span></td></tr>
-<tr><td class="nw"><strong>10/11 日</strong></td><td class="nw">名古屋港<br><span class="small">名港線一條線</span></td><td><strong>名古屋港水族館</strong><br><strong>南極觀測船ふじ ＋ 港ビル展望室<br>＋ 海洋博物館</strong>（三館共通券 ¥710）</td><td class="sh"><strong>ららぽーと<br>名古屋みなとアクルス</strong><br><span class="small">217 店，9:00–20:00</span></td><td class="op">シートレインランド<br>觀覽車</td></tr>
-<tr><td class="nw"><strong>10/12 一祝</strong></td><td class="nw">則武<br>→ 名古屋站</td><td><strong>豐田產業技術紀念館</strong><br><strong>則武之森</strong>（入園免費）</td><td class="sh"><strong>イオンモール<br>Nagoya Noritake Garden</strong><br><span class="small">緊鄰豐田館，步行可達</span><br>＋ <strong>名古屋站地下街</strong><br>高島屋／名鐵百貨／Gate Tower</td><td class="op">磁浮鐵道館<br><span class="small">（改去這裡就不逛イオン）</span></td></tr>
-<tr class="pick"><td class="nw"><strong>10/13 二</strong></td><td class="nw">金城ふ頭<br>→ 榮</td><td><strong>樂高樂園 ＋ SEA LIFE</strong>（全天）<span class="ok-badge">票已購</span></td><td class="sh"><strong>18:00 回榮補逛百貨</strong><br><span class="small">10/10 挪過來的主力購物<br>（松坂屋 3F 以下開到 20:00）</span></td><td class="op">—<span class="small">（白天不加行程）</span></td></tr>
-<tr><td class="nw"><strong>10/14 三</strong></td><td class="nw">熱田 → 大須<br>→ 機場</td><td><strong>熱田神宮</strong>（境內免費）</td><td class="sh"><strong>大須商店街</strong><br><span class="small">1,200 店，古著／3C／食べ歩き</span></td><td class="op">白鳥庭園<br>熱田神宮寶物館</td></tr>
-</tbody>
-</table>
+<div class="glance">
+  <div class="gc">
+    <div class="top"><span class="dt">10/09 五</span><span class="dw">抵達日</span></div>
+    <div class="body">
+      <div class="theme">抵達・入住・榮散步</div>
+      <div class="row"><span class="ic i-go">➜</span><span>18:45 抵達 → 約 20:15 到飯店</span></div>
+      <div class="row"><span class="ic i-food">●</span><span>中日大樓內晚餐</span></div>
+      <div class="row"><span class="ic i-opt">◇</span><span>Oasis 21 夜間點燈</span></div>
+    </div>
+    <div class="foot2">交通：μ-SKY ＋ 東山線</div>
+  </div>
+  <div class="gc key">
+    <div class="top"><span class="dt">10/10 六</span><span class="dw">★ 70 歲慶生日</span></div>
+    <div class="body">
+      <div class="theme">名古屋城・德川園 → 八勝館</div>
+      <div class="row"><span class="ic i-spot">◆</span><span>名古屋城＋金鯱橫丁（午餐吃少）</span></div>
+      <div class="row"><span class="ic i-spot">◆</span><span>德川園 13:30–15:00</span></div>
+      <div class="row"><span class="ic i-shop">▣</span><span>榮 三越／松坂屋 速逛</span></div>
+      <div class="row"><span class="ic i-food">●</span><span><strong>18:30 八勝館 懷石</strong><span class="b ok">已訂</span></span></div>
+    </div>
+    <div class="foot2"><strong style="color:var(--red)">17:45 飯店叫兩台計程車</strong>｜ドニチエコ ¥620</div>
+  </div>
+  <div class="gc">
+    <div class="top"><span class="dt">10/11 日</span><span class="dw">最輕鬆</span></div>
+    <div class="body">
+      <div class="theme">名古屋港一日</div>
+      <div class="row"><span class="ic i-spot">◆</span><span>名古屋港水族館（幼兒免費）</span></div>
+      <div class="row"><span class="ic i-spot">◆</span><span>港區三館共通券 ¥710</span></div>
+      <div class="row"><span class="ic i-shop">▣</span><span>ららぽーと みなとアクルス＋晚餐</span></div>
+    </div>
+    <div class="foot2">名城線→名港線 一條線｜ドニチエコ ¥620</div>
+  </div>
+  <div class="gc">
+    <div class="top"><span class="dt">10/12 一祝</span><span class="dw">全室內</span></div>
+    <div class="body">
+      <div class="theme">則武區 → 名古屋站</div>
+      <div class="row"><span class="ic i-spot">◆</span><span>豐田產業技術紀念館</span></div>
+      <div class="row"><span class="ic i-spot">◆</span><span>則武之森（午餐・休息）</span></div>
+      <div class="row"><span class="ic i-shop">▣</span><span>イオンモール → 名古屋站百貨</span></div>
+      <div class="row"><span class="ic i-opt">◇</span><span>或改磁浮鐵道館（二選一）</span></div>
+    </div>
+    <div class="foot2">東山線 榮↔亀島｜ドニチエコ ¥620</div>
+  </div>
+  <div class="gc key">
+    <div class="top"><span class="dt">10/13 二</span><span class="dw">市區三重休館日</span></div>
+    <div class="body">
+      <div class="theme">樂高樂園＋SEA LIFE 全天</div>
+      <div class="row"><span class="ic i-spot">◆</span><span>10:00–17:00<span class="b ok">票已購</span></span></div>
+      <div class="row"><span class="ic i-shop">▣</span><span>18:00 回榮補逛百貨（主力）</span></div>
+      <div class="row"><span class="ic i-opt">◇</span><span>長輩幼兒可先回房</span></div>
+    </div>
+    <div class="foot2">東山線＋あおなみ線（一日券不能用）</div>
+  </div>
+  <div class="gc">
+    <div class="top"><span class="dt">10/14 三</span><span class="dw">返程</span></div>
+    <div class="body">
+      <div class="theme">熱田神宮 → 大須 → 機場</div>
+      <div class="row"><span class="ic i-spot">◆</span><span>熱田神宮＋宮きしめん</span></div>
+      <div class="row"><span class="ic i-shop">▣</span><span>大須商店街（食べ歩き）</span></div>
+      <div class="row"><span class="ic i-go">➜</span><span>15:30 取行李 → 17:00 μ-SKY</span></div>
+    </div>
+    <div class="foot2">名城線一條線｜11:00 前退房寄行李</div>
+  </div>
+</div>
 
 <div class="box warn">
-<p><strong>10/13（二）是市區「三重死日」，所以那天白天只排樂高</strong>（百貨不受影響，照常營業到 20:00，所以晚上回榮補逛沒問題）。豐田館、德川園、則武之森、磁浮鐵道館、名古屋港水族館、メーグル 觀光巴士 <strong>10/13 全部休館或運休</strong>（前幾項是「月曜休、祝日則順延」，10/12 是體育日 → 順延到 10/13）。而樂高 10/13 是 Band P 最便宜、人最少，走あおなみ線不受影響 —— 所以其他所有行程都必須避開這天，這也是上表的排法依據。</p>
+<p><strong>為什麼這樣排：10/13（二）是市區「三重休館日」。</strong>豐田館、德川園、則武之森、磁浮鐵道館、名古屋港水族館、メーグル 觀光巴士 10/13 全部休館或運休（「月曜休、祝日則順延」，10/12 體育日 → 順延到 10/13）。樂高走あおなみ線不受影響、又是當週最便宜最空的一天，所以白天只排樂高；其他景點全部避開這天。百貨照常營業到 20:00。</p>
 </div>
 
-<h2>三、每日細節</h2>
+<!-- ================= 吉卜力 ================= -->
+<h2 id="ghibli">二、吉卜力公園：2026-09-30 實查票況</h2>
 
-<div class="day">
-<div class="day-h">10/09（五）抵達日<span class="zone">榮・飯店周邊</span></div>
-<div class="day-b">
-<ul>
-<li><span class="fix">◆</span> JX838 14:55 桃園 T1 → 18:45 中部機場 → μ-SKY 28 分 → 名古屋站 → 東山線 5 分 → 榮（到飯店約 20:00–20:15）</li>
-<li><span class="fix">◆</span> 榮商圈晚餐：味噌煮込烏龍、鰻魚飯、味噌豬排。<strong>飯店所在的中日大樓本身就有餐飲</strong>，最省力</li>
-<li><span class="sh">▣</span> <strong>サカエチカ地下街</strong>（榮站地下，飯店走過去就到）—— 晚上還開，先熟悉一下地形</li>
-<li><span class="op">◇</span> <strong>Oasis 21「水之宇宙船」</strong>—— 免費，夜間點燈很漂亮，步行可達</li>
-</ul>
-</div>
-</div>
-
-<div class="day">
-<div class="day-h">10/10（六）名古屋城 ＋ 德川園 ＋ <strong>八勝館 70 歲慶生晚餐</strong><span class="zone">名城線 → 榮 → 計程車 八事</span></div>
-<div class="day-b">
-<div class="box ok">
-<p><strong>今天是慶生日，18:30 入席，所以下午要抓時間。</strong>整條線的硬節點只有一個：<strong>17:45 一定要從飯店出門</strong>（計程車 20–25 分，18:10–18:15 到店，剛好從容入席）。往前推算 → 德川園 15:00 結束、16:00–17:15 只在飯店旁邊的榮速逛、17:15 回房換衣服。</p>
-<p class="small">懷石整席約 2.5–3 小時，預計 <strong>21:00–21:30 散席</strong>，回程請料亭幫叫計程車（料亭都有這個服務）。因此<strong>當晚不排 Oasis 21 夜間點燈與名古屋電視塔</strong>——兩個都在榮、就在飯店旁，改到其他晚上隨時可去。</p>
-</div>
-<ul>
-<li><span class="fix">◆</span> <strong>09:00</strong> 地鐵名城線 <strong>榮 → 市役所 直達 2 站約 4 分</strong>，步行 5 分。<strong>名古屋城</strong> 09:00–16:30（本丸御殿最終入場 16:00），約 1.5–2 小時。大人 ¥1,000、中學生以下免費</li>
-<li><span class="fix">◆</span> <strong>12:00</strong> <strong>金鯱橫丁</strong>午餐：味噌豬排、天むす、味噌串炸。<span class="small">⚠️ 晚上是正式懷石多品套餐，<strong>午餐刻意不要吃太飽</strong>，長輩尤其</span></li>
-<li><span class="fix">◆</span> <strong>13:30–15:00</strong> <strong>德川園</strong>（メーグル 往東 3km，或名城線「大曾根」）。9:30–17:30，池泉迴遊式庭園、<strong>路徑平坦</strong>。<strong>與名古屋城共通券 ¥1,040</strong>、中學生以下免費。<span class="small"><strong>15:00 務必離園</strong>，大曾根搭名城線回榮約 12 分</span></li>
-<li><span class="sh">▣</span> <strong>16:00–17:15 榮四大百貨「速逛」——只逛飯店旁邊這兩家</strong><br>
-今天只有一小時多，所以<strong>只挑最近的：從榮站地下的サカエチカ地下街 → 名古屋三越 栄店 → 松坂屋名古屋店</strong>（3F 以下 10:00–20:00、4F 以上 10:00–19:00）。<strong>LACHIC、PARCO、LOFT、Apple Store 全部留到 10/13 晚上補</strong>——那天從樂高回來剛好 18:00，百貨還開到 20:00，而且就在飯店樓下，不需要多花車程</li>
-<li><span class="fix">◆</span> <strong>17:15 回房換衣服</strong>。料亭是正式場合，<strong>建議正裝或至少襯衫／洋裝</strong>；榻榻米個室要脫鞋，<strong>請穿好脫的鞋、以及沒有破洞的襪子</strong></li>
-<li><span class="fix">◆</span> <strong>17:45 請飯店櫃台叫兩台計程車</strong>（榮 → 八事，門到門 20–25 分、兩台約 ¥5,000–6,000）。<strong>全程不用走路，也不必轉車</strong>——六大一小含兩位長輩＋幼兒，這段不建議搭地鐵<br>
-<span class="small">地址給司機看：<span class="mono">〒466-0834 名古屋市昭和区広路町石坂29　八勝館</span>｜備案：名城線 榮 → 八事（右回り約 15–18 分，9 站不用換車）→ 4 號出口左轉步行 3 分</span></li>
-<li><span class="fix">◆</span> <strong>18:30 八勝館 慶生晚餐</strong><span class="ok-badge">已訂 XDQZT7</span>　夜席懷石，面庭園榻榻米個室（已可安排椅子席）、幼兒「五角重」¥5,000、備有嬰幼兒座椅。<strong>夜間庭園點燈得過北美照明學會國際獎，從房內就看得到</strong><br>
-<span class="small">⚠️ 庭園散步導覽<strong>只有午席後才有</strong>，晚上沒有，不要在行程上期待。⚠️ 整席 2.5–3 小時，3 歲幼兒中途會坐不住 —— 但是獨立個室，不會影響別桌，可以帶安靜的小玩具</span></li>
-<li><span class="fix">◆</span> <strong>約 21:00–21:30 散席</strong>，請店家代叫計程車回飯店（約 20–25 分）。到房約 22:00</li>
-<li class="small">⚠️ 名古屋城天守閣進不去 —— 2018/5 起閉館、木造復元中預計 2032 完工。只能看外觀、金鯱與本丸御殿，出發前先跟長輩說</li>
-<li class="small">抵達隔天刻意不遠行、白天全是平坦庭園，體力留給晚上的慶生席；隔天（10/11 名古屋港）也是最輕鬆的行程，不怕累</li>
-</ul>
-</div>
-</div>
-
-<div class="day">
-<div class="day-h">10/11（日）名古屋港一日<span class="zone">名港線一條線走完，幼兒多處免費</span></div>
-<div class="day-b">
-<ul>
-<li><span class="fix">◆</span> <strong>09:30</strong> 地鐵名城線→名港線 <strong>榮 → 名古屋港</strong>（約 25 分），3 號出口步行 5 分</li>
-<li><span class="fix">◆</span> <strong>名古屋港水族館</strong> 9:30–17:30（入館至閉館前 1 小時）。<strong>大人（高中生以上）¥2,030、小中學生 ¥1,010、幼兒 4 歲以上 ¥500、3 歲以下免費</strong><span class="tag free">你們的幼兒免費</span><br>
-看點：黑潮大水槽、約 35,000 尾的沙丁魚風暴、北館 3F <strong>海豚表演「BLUE ECHO」</strong>、北館 2F 白鯨。<strong>逛完約 2–3 小時，慢慢看可以待半天</strong>。全程室內有空調座位，對長輩最友善</li>
-<li><span class="fix">◆</span> <strong>午餐</strong>：水族館內或港區周邊</li>
-<li><span class="fix">◆</span> <strong>13:30 港區三館（就在水族館旁，超便宜）</strong><br>
-<strong>南極觀測船ふじ ＋ 名古屋港ポートビル展望室 ＋ 名古屋海洋博物館</strong><br>
-<strong>三館共通券：大人・高中生 ¥710、小中學生 ¥400、幼兒 4 歲以上免費</strong>（單館各 ¥300／¥200／免費）<span class="tag free">幼兒免費</span><br>
-真正的南極觀測船可以上船參觀，展望室看名古屋港全景 —— 三館加起來不到一張水族館票的一半價錢</li>
-<li><span class="op">◇</span> <strong>シートレインランド</strong>（港區的小型遊樂園，摩天輪）—— <strong>入園免費</strong>，各設施另計。<strong>週日 10:00–21:30</strong></li>
-<li><span class="sh">▣</span> <strong>16:00 名港線 名古屋港 → 港區役所（徒歩 2 分）→ ららぽーと名古屋みなとアクルス</strong><br>
-<strong>全 217 間店鋪</strong>，9:00–20:00（各店略異）、<strong>年中無休</strong>。1 樓有高知・沖繩・岐阜飛驒的物產館「しなまつり」，可以買到飛驒的伴手禮。<strong>在這裡吃晚餐</strong>再回榮</li>
-<li class="small">今天全程只用名城線＋名港線，零複雜轉乘。ドニチエコきっぷ ¥620 可用（週日）</li>
-<li class="small">⚠️ 港ビル・ふじ・海洋博物館的休館日與時間出發前請再確認官網（10/11 為週日）</li>
-</ul>
-</div>
-</div>
-
-<div class="day">
-<div class="day-h">10/12（一・體育日）則武區一日<span class="zone">三個點全在同一街區，步行可達</span></div>
-<div class="day-b">
-<ul>
-<li><span class="fix">◆</span> <strong>09:30</strong> 地鐵東山線 <strong>榮 → 亀島 直達（約 10 分）</strong>，2 號出口步行 5 分<br>
-<span class="small">（也可搭メーグル 到「トヨタ産業技術記念館」站，今天是祝日照常運行）</span></li>
-<li><span class="fix">◆</span> <strong>豐田產業技術紀念館</strong>（則武新町 4-1-35）9:30–17:00（入場受付至 16:30）。大正時代紅磚廠房改建，真實紡織機動態展示＋豐田第一台乘用車。<strong>全室內</strong>，約 2–3 小時。<strong>大人 ¥1,000（持メーグル1DAY ¥800）、小學生 ¥200、未就學免費</strong><span class="tag free">幼兒免費</span></li>
-<li><span class="fix">◆</span> <strong>12:30 則武之森 Noritake Garden</strong>（則武新町 3-1-36，<strong>與豐田館相鄰步行可達</strong>）。<strong>入園免費</strong>，商店 10:00–18:00。在「レストランキルン」或園內咖啡吃午餐，逛陶瓷園區。<strong>有座位可久坐，是長輩的休息點</strong>。展館（クラフトセンター／ミュージアム）大人 ¥500、高中生以下免費</li>
-<li><span class="sh">▣</span> <strong>14:00 イオンモール Nagoya Noritake Garden</strong>（則武新町 3-1-17，<strong>就在則武之森隔壁</strong>）—— 大型購物中心，日系品牌、超市、美食街，適合買零食伴手禮與童裝。這是全行程移動最短的購物點</li>
-<li><span class="sh">▣</span> <strong>16:30 東山線 亀島 → 名古屋站，名古屋站地下街與百貨</strong><br>
-<strong>JR 名古屋高島屋</strong>（含 Tokyu Hands）、<strong>名鐵百貨店</strong>（門口的巨大 Nana-chan 人偶是名古屋地標）、<strong>JR Gate Tower</strong>（Bic Camera、Uniqlo）、<strong>Midland Square</strong>、<strong>KITTE 名古屋</strong>，以及地下街 <strong>ユニモール／ゲートウォーク／エスカ／サンロード</strong>。晚餐在站內「うまいもん通り」</li>
-<li><span class="op">◇</span> <strong>改成磁浮鐵道館</strong>：あおなみ線 名古屋 → 金城ふ頭 24 分。10:00–17:30（最終入館 17:00），<strong>大人 ¥1,200、小中高生 ¥500、3 歲以上未就學 ¥200</strong>。N700 系實車、駕駛模擬器。<strong>週二休館所以只能今天</strong>。<span class="small">但去了就沒時間逛イオンモール，二選一</span></li>
-<li class="small">今天全室內、動線最短，是全程最輕鬆的一天，剛好放在樂高前一天讓長輩恢復</li>
-</ul>
-</div>
-</div>
-
-<div class="day">
-<div class="day-h">10/13（二）樂高樂園 ＋ SEA LIFE（全天）→ 晚間回榮補逛百貨<span class="zone">票已購・白天不加任何行程</span></div>
-<div class="day-b">
-<ul>
-<li><span class="fix">◆</span> 榮 → 名古屋站（東山線 5 分）→ あおなみ線 <strong>金城ふ頭</strong> 24 分 ¥360 → 步行 5 分。約 35 分</li>
-<li><span class="fix">◆</span> 營業 10:00–17:00。Klook 早鳥票 6 大 1 童已購（NT$8,866），含 SEA LIFE 名古屋水族館</li>
-<li><span class="op">◇</span> 長輩休息：SEA LIFE 全程室內有空調座位；樂高 LEGO City 區有座位可看小孩玩駕駛學校</li>
-<li><span class="sh">▣</span> <strong>18:00 回榮補逛百貨（10/10 挪過來的主力購物）</strong><br>
-17:00 閉園出發，約 18:00 回到榮。<strong>松坂屋 3F 以下開到 20:00、サカエチカ與唐吉訶德更晚</strong>，把 10/10 沒逛完的 <strong>LACHIC、PARCO（東・西・南館）、LOFT、Apple Store</strong> 在這一晚走完。因為就在飯店樓下，<strong>長輩與幼兒可以先回房休息，想逛的人自己出門</strong>——這是全程唯一能「分頭行動」的購物時段<br>
-<span class="small">⚠️ 玩了一整天樂高，體力是變數。如果當晚太累就放棄，改到 10/14 從大須回榮取行李後（15:30–16:45）再補、或直接在去機場路上的名古屋站處理免稅品</span></li>
-<li class="small">⚠️ 今天市區主要景點與メーグル 全部休館／運休，隔壁的磁浮鐵道館也週二休館，所以白天不要排其他行程</li>
-</ul>
-</div>
-</div>
-
-<div class="day">
-<div class="day-h">10/14（三）熱田神宮 ＋ 大須商店街 → 返程<span class="zone">名城線一條線，順路不繞</span></div>
-<div class="day-b">
-<ul>
-<li><span class="fix">◆</span> <strong>11:00 前退房</strong>，行李寄放飯店</li>
-<li><span class="fix">◆</span> <strong>09:30</strong> 地鐵名城線 <strong>榮 → 熱田神宮西 直達約 15 分</strong>（環狀線不用換車），2 號出口步行 7 分</li>
-<li><span class="fix">◆</span> <strong>熱田神宮</strong>：西元 113 年創建、<strong>1,900 年歷史</strong>，日本三大神宮之一，供奉三神器之一<strong>草薙神劍</strong>。境內 19 萬 m²、45 社。<strong>境內免費、參道平坦</strong>，約 1–1.5 小時。<strong>午餐吃境內「宮きしめん」</strong></li>
-<li><span class="sh">▣</span> <strong>12:30 名城線 熱田神宮西 → 上前津（順路），大須商店街</strong><br>
-<strong>1,200 間以上店鋪、免費、有頂棚（下雨也能逛）</strong>。古著挖寶、3C 電器、國際美食、伴手禮一次搞定。<br>
-必吃必買：<strong>矢場とん</strong>味噌豬排、<strong>青柳總本家</strong>青蛙饅頭與外郎糕、大須外郎糕、各式食べ歩き小吃。順道參拜<strong>大須觀音</strong><br>
-<span class="small">⚠️ 店家多在 11:00 才陸續開門、19:00–20:00 就打烊，<strong>中午到下午是最佳時段</strong>，剛好符合今天的動線。部分店家不提供退稅，要買免稅品建議在百貨或名古屋站處理</span></li>
-<li><span class="op">◇</span> <strong>白鳥庭園</strong>（熱田神宮西站 4 號出口步行 10 分）9:00–17:00，大人 ¥300、<strong>中學生以下免費</strong>。<span class="small">若選這個，大須的時間就要壓縮 —— 建議二選一。另 10 月中還不是紅葉季（賞楓在 11 月下旬）</span></li>
-<li><span class="op">◇</span> <strong>熱田神宮寶物館</strong>：9:00–16:30，大人 ¥500。國寶 1 件、重要文化財 27 件</li>
-<li><span class="fix">◆</span> <strong>15:30</strong> 上前津 → 榮取行李（或從大須步行回榮約 25 分）→ <strong>17:00 μ-SKY 到機場</strong> → <strong>JX839 19:55 → 22:00 桃園 T1</strong></li>
-<li class="small">大須正好在熱田神宮回榮的名城線路上，完全不繞路。班機前留約 2.5 小時緩衝</li>
-</ul>
-</div>
-</div>
-
-<h2>四、五個購物區一覽</h2>
 <table>
-<thead><tr><th>購物區</th><th class="nw">排在</th><th>特色</th><th class="nw">時間</th></tr></thead>
+<thead><tr><th>管道</th><th class="nw">10/10–10/14 票況</th><th>說明</th></tr></thead>
 <tbody>
-<tr class="shop"><td><strong>榮四大百貨</strong><br>三越／LACHIC／松坂屋／PARCO<br>＋ サカエチカ地下街</td><td class="nw"><strong>10/10 傍晚</strong><br><span class="small">速逛 1 小時</span><br><strong>＋ 10/13 晚間</strong><br><span class="small">主力（18:00–20:00）</span></td><td class="small">名古屋最精華百貨區，<strong>榮站到矢場町步行 10 分內全部走完</strong>。飯店就在這一區，累了隨時回房。LOFT、Apple Store 也在此<br><strong>因為 10/10 晚上要去八勝館慶生，這一區拆成兩次逛</strong>：10/10 16:00–17:15 只走サカエチカ＋三越＋松坂屋，其餘留到 10/13 從樂高回來後</td><td class="small">松坂屋 3F 以下 10:00–20:00<br>4F 以上 10:00–19:00<br>餐廳 11:00–22:00</td></tr>
-<tr class="shop"><td><strong>ららぽーと<br>名古屋みなとアクルス</strong></td><td class="nw">10/11<br>下午</td><td class="small"><strong>217 間店鋪</strong>，家庭客為主。1F「しなまつり」有高知・沖繩・<strong>岐阜飛驒</strong>物產館，買得到飛驒伴手禮。名港線「港區役所」步行 2 分</td><td class="small">9:00–20:00<br><strong>年中無休</strong></td></tr>
-<tr class="shop"><td><strong>イオンモール<br>Nagoya Noritake Garden</strong></td><td class="nw">10/12<br>下午</td><td class="small"><strong>就在則武之森與豐田館隔壁</strong>（則武新町 3-1-17），全程移動最短。日系品牌、超市、美食街，適合零食伴手禮與童裝</td><td class="small">依店鋪</td></tr>
-<tr class="shop"><td><strong>名古屋站地下街<br>與百貨</strong></td><td class="nw">10/12<br>傍晚</td><td class="small">JR 高島屋（＋Tokyu Hands）、名鐵百貨（Nana-chan 地標）、Gate Tower（Bic Camera／Uniqlo）、Midland Square、KITTE；地下街 ユニモール／ゲートウォーク／エスカ／サンロード。晚餐「うまいもん通り」</td><td class="small">多為 10:00–20:00</td></tr>
-<tr class="shop"><td><strong>大須商店街</strong></td><td class="nw">10/14<br>中午–下午</td><td class="small"><strong>1,200 間以上店鋪、免費、有頂棚</strong>。古著挖寶、3C、食べ歩き、伴手禮。必吃矢場とん味噌豬排、青柳總本家青蛙饅頭。順道大須觀音</td><td class="small">多數 11:00 開門<br><strong>19:00–20:00 就打烊</strong></td></tr>
+<tr><td>官方 Boo-Woo チケット／Lawson Ticket 海外版</td><td class="nw"><span class="b no">售罄</span></td><td class="small">10 月票 8/10 開賣已完售。官方<strong>不可退票、不可轉售，也沒有釋票或追加販售</strong>機制；園區入口不賣票</td></tr>
+<tr><td>Klook 官方授權門票（純門票）</td><td class="nw"><span class="b no">售罄</span></td><td class="small">頁面顯示「已售罄」</td></tr>
+<tr><td>Klook「吉卜力巴士一日遊（名古屋出發）」</td><td class="nw"><span class="b no">售罄</span></td><td class="small">10 月只剩 10/5、10/7、10/31，NT$4,847／人</td></tr>
+<tr><td>KKday「名古屋出發 標準版一日遊」（同一供應商）</td><td class="nw"><span class="b no">售罄</span></td><td class="small">同上，10 月只剩 10/5、10/7、10/31</td></tr>
+<tr class="gb"><td><strong>KKday「吉卜力＋名古屋 CENTMAIN 酒店｜2日自由行」</strong><br><span class="small">商品 #139872，住宿方案</span></td><td class="nw"><span class="b gb">10/9 入住有位</span></td><td class="small"><strong>10/9 入住 → 10/10（六）入園，大散步券 Premium（五區全開＋館內建築）</strong>。雙床房 Twin 一間 = 2 人份門票，約 <strong>NT$11,534／間</strong>，當下最多可選 4 間（你們 6 大需 3 間 ≈ <strong>NT$34,600</strong>；3 歲幼兒免費、不佔床）。其他日期與萬豪／彩鴻方案都沒位</td></tr>
+<tr><td>JTB 國內「チケット付宿泊プラン」</td><td class="nw"><span class="small">未能確認</span></td><td class="small">日文站、需日本國內預約；10 月後方案官網寫「發售日未定」。有日本會合的家人可請他們查</td></tr>
 </tbody>
 </table>
 
-<div class="box shop">
-<p><strong>免稅採買的建議順序：</strong>大須有部分店家不提供退稅，所以<strong>大額免稅品（電器、化妝品、名牌）建議在 10/12 的名古屋站百貨或 10/13 晚間的榮四大百貨處理</strong>（10/10 傍晚只有 1 小時，退稅手續排隊會來不及，別排在那天）；大須留給古著挖寶、小吃與零食伴手禮。10/14 從大須回榮後，若還想補買免稅品，名古屋站在去機場的路上，可以最後衝一波。</p>
+<div class="box gb">
+<p><strong>結論：還有一條路，但代價是把 10/10 慶生日改成「吉卜力＋晚上八勝館」。</strong>方案的入園日固定為入住隔天，而只有 10/9 入住有位，所以只能是 10/10。八勝館訂位不用動。</p>
+<p><strong>CENTMAIN 酒店在榮 5-5-10</strong>，離你們住的皇家公園標誌（榮 4-1-1）步行約 10 分 —— 10/9 晚上到飯店後<strong>走過去 Check-in 取票</strong>即可，不影響原本飯店。房間可以不住，<strong>或剛好給日本會合的兩位家人當 10/9 住宿</strong>。</p>
+<p class="small">⚠️ 已在 21 天免費取消期限內 → <strong>現在下訂就是不可取消</strong>。⚠️ 訂購時要填<strong>每位旅客的護照英文姓名</strong>（含日本會合的兩位），入園會抽查護照。⚠️ 名額隨時會被訂走，決定要就盡快。</p>
 </div>
 
-<h3>逛街店家中日文對照（方便 Google 搜尋）</h3>
-<p class="small"><strong>中文名</strong>用來搜台灣部落客的實逛心得，<strong>日文原名</strong>直接貼進 Google Maps 或 Google 就能找到官網與定位。</p>
-
-<p class="small"><strong>▣ 10/10（六）榮商圈</strong> — 地鐵「榮」～「矢場町」步行 10 分內，飯店就在這一區</p>
-<table>
-<thead><tr><th>中文名</th><th>日文原名</th><th>說明</th></tr></thead>
-<tbody>
-<tr class="shop"><td><strong>松坂屋名古屋店</strong></td><td class="mono">松坂屋名古屋店</td><td class="small">旗艦老牌百貨，規模最大。3F 以下 10:00–20:00、4F 以上 10:00–19:00、餐廳 11:00–22:00</td></tr>
-<tr class="shop"><td><strong>名古屋榮三越</strong></td><td class="mono">名古屋栄三越</td><td class="small">高級百貨，與 LACHIC 相連</td></tr>
-<tr class="shop"><td><strong>LACHIC 拉希克</strong></td><td class="mono">ラシック（LACHIC）</td><td class="small">年輕流行品牌，7–8F 餐廳評價好</td></tr>
-<tr class="shop"><td><strong>名古屋 PARCO</strong></td><td class="mono">名古屋パルコ（東館・西館・南館）</td><td class="small">三館相連，動漫周邊與潮牌多</td></tr>
-<tr class="shop"><td><strong>榮地下街 サカエチカ</strong></td><td class="mono">栄地下街 サカエチカ</td><td class="small">榮站地下，下雨也能逛。建議從這裡開始往南走</td></tr>
-<tr class="shop"><td><strong>綠洲 21・水之宇宙船</strong></td><td class="mono">オアシス21・水の宇宙船</td><td class="small"><strong>免費</strong>，夜間點燈，地下也有商店街</td></tr>
-<tr class="shop"><td><strong>中部電力 MIRAI TOWER</strong><br><span class="small">（原名古屋電視塔）</span></td><td class="mono">中部電力 MIRAI TOWER</td><td class="small">展望台大人 ¥1,300、小中學生 ¥800、未就學免費</td></tr>
-<tr class="shop"><td><strong>LOFT 名古屋店</strong></td><td class="mono">ロフト名古屋店</td><td class="small">文具雜貨</td></tr>
-<tr class="shop"><td><strong>唐吉訶德 榮店</strong></td><td class="mono">ドン・キホーテ栄店</td><td class="small">藥妝零食，營業到很晚</td></tr>
-<tr class="shop"><td><strong>中日大樓</strong><span class="tag">飯店所在</span></td><td class="mono">中日ビル</td><td class="small">2024 年重新開幕，樓下就有商店與餐飲，最省力</td></tr>
-</tbody>
-</table>
-
-<p class="small"><strong>▣ 10/11（日）名古屋港</strong> — 地鐵名港線「港區役所」步行 2 分</p>
-<table>
-<thead><tr><th>中文名</th><th>日文原名</th><th>說明</th></tr></thead>
-<tbody>
-<tr class="shop"><td><strong>三井購物公園 LaLaport<br>名古屋港 AQULS</strong></td><td class="mono">ららぽーと名古屋みなとアクルス</td><td class="small"><strong>217 間店鋪</strong>，9:00–20:00、<strong>年中無休</strong>。家庭客為主</td></tr>
-<tr class="shop"><td><strong>物產館「しなまつり」</strong></td><td class="mono">しなまつり</td><td class="small">在 LaLaport 1F。高知・沖繩・<strong>岐阜飛驒</strong>物產，買得到飛驒伴手禮</td></tr>
-</tbody>
-</table>
-
-<p class="small"><strong>▣ 10/12（一・祝）則武 → 名古屋站</strong></p>
-<table>
-<thead><tr><th>中文名</th><th>日文原名</th><th>說明</th></tr></thead>
-<tbody>
-<tr class="shop"><td><strong>永旺夢樂城<br>名古屋則武花園</strong></td><td class="mono">イオンモール Nagoya Noritake Garden</td><td class="small">則武新町 3-1-17，<strong>與豐田館、則武之森同一街區步行可達</strong>。日系品牌、超市、美食街</td></tr>
-<tr class="shop"><td><strong>則武之森</strong></td><td class="mono">ノリタケの森</td><td class="small"><strong>入園免費</strong>，陶瓷園區。商店 10:00–18:00，餐廳「レストランキルン」</td></tr>
-<tr class="shop"><td><strong>JR 名古屋高島屋</strong></td><td class="mono">ジェイアール名古屋タカシマヤ</td><td class="small">名古屋站最大百貨，含 <strong>HANDS</strong>（原東急手創館）</td></tr>
-<tr class="shop"><td><strong>名鐵百貨店 本店</strong></td><td class="mono">名鉄百貨店本店</td><td class="small">門口的巨大人偶 <strong>Nana-chan（ナナちゃん人形）</strong>是名古屋地標</td></tr>
-<tr class="shop"><td><strong>JR Gate Tower Mall</strong></td><td class="mono">ジェイアールゲートタワーモール</td><td class="small">Bic Camera、Uniqlo 都在這棟</td></tr>
-<tr class="shop"><td><strong>Midland Square</strong></td><td class="mono">ミッドランドスクエア</td><td class="small">名牌精品，頂樓有展望台</td></tr>
-<tr class="shop"><td><strong>KITTE 名古屋</strong></td><td class="mono">KITTE名古屋</td><td class="small">JP Tower 內，選物與餐飲</td></tr>
-<tr class="shop"><td><strong>名古屋站四大地下街</strong></td><td class="mono">ユニモール（Unimall）<br>ゲートウォーク（Gate Walk）<br>エスカ（ESCA・新幹線口側）<br>サンロード（Sun Road）</td><td class="small">全部相通，下雨不用出地面。<strong>エスカ</strong> 有很多名古屋名產店</td></tr>
-<tr class="shop"><td><strong>美食街「うまいもん通り」</strong></td><td class="mono">うまいもん通り</td><td class="small">名古屋站內，味噌豬排、鰻魚飯、台灣拉麵都有</td></tr>
-</tbody>
-</table>
-
-<p class="small"><strong>▣ 10/14（三）大須</strong> — 地鐵「上前津」或「大須觀音」站；從榮步行約 25 分</p>
-<table>
-<thead><tr><th>中文名</th><th>日文原名</th><th>說明</th></tr></thead>
-<tbody>
-<tr class="shop"><td><strong>大須商店街</strong></td><td class="mono">大須商店街</td><td class="small"><strong>1,200 間以上店鋪、免費、有頂棚</strong>。多數 11:00 開門、<strong>19:00–20:00 就打烊</strong></td></tr>
-<tr class="shop"><td><strong>大須觀音</strong></td><td class="mono">大須観音（北野山真福寺寶生院）</td><td class="small">商店街的地標寺院，免費參拜</td></tr>
-<tr class="shop"><td><strong>萬松寺</strong></td><td class="mono">万松寺</td><td class="small">織田信長家的寺院，就在商店街內</td></tr>
-<tr class="shop"><td><strong>KOMEHYO 大須本店</strong></td><td class="mono">コメ兵 大須本店</td><td class="small">日本最大二手名牌連鎖的<strong>發源本店</strong>，包包手錶想撿貨來這裡</td></tr>
-<tr class="shop"><td><strong>矢場とん</strong>（味噌豬排）</td><td class="mono">矢場とん 矢場町本店</td><td class="small">名古屋味噌豬排的代表名店，大須就是本店所在</td></tr>
-<tr class="shop"><td><strong>青柳總本家 大須本店</strong></td><td class="mono">青柳総本家 大須本店</td><td class="small"><strong>青蛙饅頭（カエルまんじゅう）</strong>與外郎糕，小孩很愛，經典伴手禮</td></tr>
-<tr class="shop"><td><strong>大須外郎糕</strong></td><td class="mono">大須ういろ</td><td class="small">迷你冰棒造型的傳統點心，多種口味</td></tr>
-</tbody>
-</table>
-
-<div class="box shop">
-<p class="small"><strong>Google 搜尋小技巧：</strong>日文原名直接貼進 Google Maps 最準；想看台灣人的實逛心得，用中文名加上「名古屋」＋「2026」，例如「大須商店街 名古屋 2026」、「永旺夢樂城 則武 名古屋」。若中文搜不到，把日文原名貼上去通常就有官網。</p>
+<div class="cmp">
+<div>
+<h4>現行版（不去吉卜力）</h4>
+<ul class="small">
+<li>10/10：名古屋城＋德川園 → 八勝館</li>
+<li>10/12：則武區（豐田館・則武之森・イオン）＋名古屋站</li>
+<li>10/14：熱田神宮＋大須 → 機場</li>
+<li>節奏最悠閒，不額外花錢</li>
+</ul>
+</div>
+<div style="border-color:var(--gb)">
+<h4 style="color:var(--gb)">Plan B（訂到吉卜力）</h4>
+<ul class="small">
+<li><strong>10/10：吉卜力 09:15–14:45 → 回飯店休息 → 17:45 八勝館</strong></li>
+<li><strong>10/12：名古屋城＋金鯱橫丁＋德川園</strong>（從 10/10 整段搬過來，而且不趕時間）</li>
+<li>則武區改成選擇性；名古屋站百貨移到 10/14 去機場路上逛</li>
+<li>10/11、10/13、10/14 不變｜預算 +≈NT$34,600</li>
+</ul>
+</div>
 </div>
 
-<h2>五、交通與票券</h2>
+<details>
+<summary>Plan B：10/10 吉卜力＋慶生晚餐 時間軸（點開）</summary>
+<div class="tl">
+  <div class="t">前晚</div><div class="ic i-go">➜</div><div class="c">10/9 到榮後，走到 <strong>CENTMAIN 酒店（榮 5-5-10）</strong>出示護照 Check-in，領「吉卜力入場憑證」</div>
+  <div class="t">08:15</div><div class="ic i-go">➜</div><div class="c">飯店出發：東山線 <strong>榮 → 藤が丘</strong>（終點，約 25 分）→ 轉 <strong>リニモ → 愛・地球博記念公園</strong>（約 13 分）<span class="s">或叫兩台計程車門到門約 40 分</span></div>
+  <div class="t">09:15</div><div class="ic i-spot">◆</div><div class="c">入園（週六 9:00 開園）。先進 <strong>もののけの里</strong> 或 <strong>魔女の谷</strong> 領 Premium 手環<span class="s">手環須 12:00 前領；第一區與大倉庫要 6 人一起入場</span></div>
+  <div class="t hard">10:00</div><div class="ic i-spot">◆</div><div class="c"><strong>ジブリの大倉庫</strong>（指定 10:00–10:59 入場，全員同行）— 室內、有座位，約 1.5 小時</div>
+  <div class="t">12:00</div><div class="ic i-food">●</div><div class="c">園內午餐。<strong>晚上是懷石，午餐吃少</strong></div>
+  <div class="t">13:00</div><div class="ic i-spot">◆</div><div class="c"><strong>魔女の谷</strong>：オキノ邸・ハウルの城・魔女の家（Premium 可進館內）<span class="s">どんどこ森（小梅家）上坡陡，長輩建議略過</span></div>
+  <div class="t hard">14:45</div><div class="ic i-go">➜</div><div class="c"><strong>離園</strong>，リニモ＋東山線回榮 → 約 15:45 到飯店休息、換正式服裝</div>
+  <div class="t hard">17:45</div><div class="ic i-go">➜</div><div class="c">飯店叫兩台計程車 → 18:30 八勝館（同現行版）</div>
+</div>
+<p class="small">吉卜力園區很大、以步行為主，加上晚上慶生席，這天對長輩會偏累；三個室內區（大倉庫、魔女の谷館內）優先，其餘看體力。</p>
+</details>
+
+<!-- ================= 每日細節 ================= -->
+<h2>三、每日時間軸</h2>
+<div class="legend"><span class="i-spot">◆ 主景點</span><span class="i-shop">▣ 逛街</span><span class="i-food">● 餐</span><span class="i-opt">◇ 選擇性</span><span class="i-go">➜ 交通</span><span style="color:var(--red)">紅字 = 不能晚的時間點</span></div>
+
+<!-- 10/09 -->
+<div class="day" id="d09">
+<div class="day-h"><span class="dt">10/09（五）</span><span class="th">抵達日</span><span class="zone">榮・飯店周邊</span></div>
+<div class="day-b">
+<div class="tl">
+  <div class="t">14:55</div><div class="ic i-go">➜</div><div class="c">JX838 桃園 T1 起飛 → <strong>18:45 中部機場 T1</strong></div>
+  <div class="t">19:15</div><div class="ic i-go">➜</div><div class="c">名鐵 μ-SKY 28 分 → 名古屋站 → 東山線 5 分 → 榮<span class="s">到飯店約 20:00–20:15</span></div>
+  <div class="t">20:15</div><div class="ic i-food">●</div><div class="c">晚餐：<strong>飯店所在的中日大樓</strong>就有餐廳，最省力。味噌煮込烏龍、鰻魚飯、味噌豬排</div>
+  <div class="t"></div><div class="ic i-shop">▣</div><div class="c">サカエチカ地下街（榮站地下），先熟悉地形</div>
+  <div class="t"></div><div class="ic i-opt">◇</div><div class="c">Oasis 21「水之宇宙船」夜間點燈 —— 免費、步行可達</div>
+</div>
+</div>
+</div>
+
+<!-- 10/10 -->
+<div class="day key" id="d10">
+<div class="day-h"><span class="dt">10/10（六）</span><span class="th">名古屋城・德川園・<strong>八勝館 70 歲慶生晚餐</strong></span><span class="zone">名城線 → 榮 → 計程車 八事</span></div>
+<div class="day-b">
+<div class="box ok" style="margin-top:0">
+<p><strong>今天唯一的硬節點：17:45 從飯店出門。</strong>往前推 → 17:15 回房換衣 → 16:00–17:15 榮速逛 → 15:00 德川園離園。</p>
+</div>
+<div class="tl">
+  <div class="t">09:00</div><div class="ic i-go">➜</div><div class="c">名城線 <strong>榮 → 市役所</strong>（2 站約 4 分），步行 5 分</div>
+  <div class="t">09:15</div><div class="ic i-spot">◆</div><div class="c"><strong>名古屋城</strong> 9:00–16:30（本丸御殿最終入場 16:00），約 1.5–2 小時<span class="s">大人 ¥1,000、中學生以下免費｜與德川園共通券 ¥1,040｜天守閣木造復元中不能進，只看外觀、金鯱、本丸御殿（先跟長輩說）</span></div>
+  <div class="t">12:00</div><div class="ic i-food">●</div><div class="c"><strong>金鯱橫丁</strong>午餐：味噌豬排、天むす、味噌串炸<span class="s">⚠️ 晚上是正式懷石，<strong>午餐刻意不要吃太飽</strong></span></div>
+  <div class="t">13:30</div><div class="ic i-spot">◆</div><div class="c"><strong>德川園</strong>（メーグル 或名城線「大曾根」）9:30–17:30，池泉迴遊式庭園、路徑平坦</div>
+  <div class="t hard">15:00</div><div class="ic i-go">➜</div><div class="c"><strong>德川園離園</strong>，大曾根 → 名城線回榮約 12 分</div>
+  <div class="t">16:00</div><div class="ic i-shop">▣</div><div class="c"><strong>榮速逛（只挑最近的）</strong>：サカエチカ → 名古屋三越 栄店 → 松坂屋<span class="s">LACHIC、PARCO、LOFT、Apple Store 留到 10/13 晚上；免稅大額採買也別排今天</span></div>
+  <div class="t">17:15</div><div class="ic">·</div><div class="c">回房換衣：<strong>正裝或襯衫／洋裝</strong>；榻榻米個室要脫鞋 → 好脫的鞋、沒破洞的襪子</div>
+  <div class="t hard">17:45</div><div class="ic i-go">➜</div><div class="c"><strong>請櫃台叫兩台計程車</strong> 榮 → 八事，門到門 20–25 分（兩台約 ¥5,000–6,000）<span class="s">給司機看：<span class="mono">〒466-0834 名古屋市昭和区広路町石坂29　八勝館</span>｜備案：名城線 榮 → 八事 約 15–18 分，4 號出口步行 3 分</span></div>
+  <div class="t hard">18:30</div><div class="ic i-food">●</div><div class="c"><strong>八勝館 慶生晚餐</strong><span class="b ok">XDQZT7</span>　夜席懷石、面庭園個室（可安排椅子席）、幼兒五角重、嬰幼兒座椅；夜間庭園點燈從房內就看得到<span class="s">庭園散步導覽只有午席才有｜整席 2.5–3 小時，幫幼兒帶安靜的小玩具</span></div>
+  <div class="t">21:15</div><div class="ic i-go">➜</div><div class="c">約 21:00–21:30 散席，請店家代叫計程車回飯店，到房約 22:00</div>
+</div>
+<p class="small" style="margin-top:8px">若訂到吉卜力 → 這天改用 <a href="#ghibli">Plan B 時間軸</a>，名古屋城＋德川園整段移到 10/12。</p>
+</div>
+</div>
+
+<!-- 10/11 -->
+<div class="day" id="d11">
+<div class="day-h"><span class="dt">10/11（日）</span><span class="th">名古屋港一日</span><span class="zone">名城線→名港線一條線，幼兒多處免費</span></div>
+<div class="day-b">
+<div class="tl">
+  <div class="t">09:30</div><div class="ic i-go">➜</div><div class="c">名城線→名港線 <strong>榮 → 名古屋港</strong>（約 25 分），3 號出口步行 5 分</div>
+  <div class="t">10:00</div><div class="ic i-spot">◆</div><div class="c"><strong>名古屋港水族館</strong> 9:30–17:30<span class="tag free">3 歲以下免費</span><span class="s">大人 ¥2,030｜黑潮大水槽、沙丁魚風暴、北館 3F 海豚表演「BLUE ECHO」、北館 2F 白鯨｜全室內有座位，約 2–3 小時</span></div>
+  <div class="t">12:30</div><div class="ic i-food">●</div><div class="c">午餐：水族館內或港區周邊</div>
+  <div class="t">13:30</div><div class="ic i-spot">◆</div><div class="c"><strong>港區三館</strong>：南極觀測船ふじ＋港ビル展望室＋海洋博物館<span class="tag free">幼兒免費</span><span class="s">三館共通券大人 ¥710｜真正的南極觀測船可上船參觀</span></div>
+  <div class="t"></div><div class="ic i-opt">◇</div><div class="c">シートレインランド 摩天輪（入園免費，週日 10:00–21:30）</div>
+  <div class="t">16:00</div><div class="ic i-shop">▣</div><div class="c">名港線 → <strong>港區役所</strong>（步行 2 分）<strong>ららぽーと名古屋みなとアクルス</strong><span class="s">217 店、9:00–20:00、年中無休｜1F「しなまつり」可買飛驒伴手禮｜在這裡吃晚餐再回榮</span></div>
+</div>
+<ul class="notes"><li>港ビル・ふじ・海洋博物館的休館與時間出發前再確認官網</li></ul>
+</div>
+</div>
+
+<!-- 10/12 -->
+<div class="day" id="d12">
+<div class="day-h"><span class="dt">10/12（一・體育日）</span><span class="th">則武區 → 名古屋站</span><span class="zone">三個點同一街區步行可達・全室內</span></div>
+<div class="day-b">
+<div class="tl">
+  <div class="t">09:30</div><div class="ic i-go">➜</div><div class="c">東山線 <strong>榮 → 亀島</strong>（約 10 分），2 號出口步行 5 分<span class="s">或メーグル「トヨタ産業技術記念館」站（祝日照常運行）</span></div>
+  <div class="t">09:45</div><div class="ic i-spot">◆</div><div class="c"><strong>豐田產業技術紀念館</strong> 9:30–17:00<span class="tag free">未就學免費</span><span class="s">大人 ¥1,000（持メーグル1DAY ¥800）｜紅磚廠房、紡織機動態展示、豐田第一台乘用車｜約 2–3 小時</span></div>
+  <div class="t">12:30</div><div class="ic i-food">●</div><div class="c"><strong>則武之森</strong>（入園免費）午餐「レストランキルン」或園內咖啡；有座位，長輩的休息點</div>
+  <div class="t">14:00</div><div class="ic i-shop">▣</div><div class="c"><strong>イオンモール Nagoya Noritake Garden</strong>（就在隔壁）零食伴手禮、童裝、超市</div>
+  <div class="t">16:30</div><div class="ic i-shop">▣</div><div class="c">東山線 亀島 → <strong>名古屋站百貨與地下街</strong>：JR 高島屋（HANDS）、名鐵百貨（Nana-chan）、Gate Tower（Bic Camera／Uniqlo）<span class="s">晚餐站內「うまいもん通り」｜大額免稅品適合在這裡處理</span></div>
+  <div class="t"></div><div class="ic i-opt">◇</div><div class="c"><strong>改去磁浮鐵道館</strong>（あおなみ線 金城ふ頭 24 分）10:00–17:30，大人 ¥1,200、幼兒 ¥200。週二休，只能今天；去了就不逛イオン</div>
+</div>
+<p class="small" style="margin-top:8px">若訂到吉卜力（Plan B）→ 今天改成「名古屋城＋金鯱橫丁＋德川園」，照 10/10 原本時間走、不用趕，晚上可在榮逛街。</p>
+</div>
+</div>
+
+<!-- 10/13 -->
+<div class="day key" id="d13">
+<div class="day-h"><span class="dt">10/13（二）</span><span class="th">樂高樂園＋SEA LIFE 全天 → 晚間回榮逛百貨</span><span class="zone">票已購・白天不加行程</span></div>
+<div class="day-b">
+<div class="tl">
+  <div class="t">09:15</div><div class="ic i-go">➜</div><div class="c">榮 → 名古屋站（東山線 5 分）→ <strong>あおなみ線 金城ふ頭</strong> 24 分 ¥360 → 步行 5 分</div>
+  <div class="t">10:00</div><div class="ic i-spot">◆</div><div class="c"><strong>樂高樂園＋SEA LIFE</strong> 10:00–17:00<span class="b ok">6 大 1 童已購</span><span class="s">長輩休息：SEA LIFE 全室內有座位；LEGO City 區可坐著看小孩玩駕駛學校</span></div>
+  <div class="t">17:00</div><div class="ic i-go">➜</div><div class="c">閉園出發，約 18:00 回到榮</div>
+  <div class="t">18:00</div><div class="ic i-shop">▣</div><div class="c"><strong>榮主力購物</strong>：LACHIC、PARCO（東・西・南館）、LOFT、Apple Store、松坂屋（3F 以下到 20:00）、唐吉訶德（更晚）<span class="s">就在飯店樓下 → 長輩與幼兒先回房，想逛的人自己出門｜太累就放棄，改在 10/14 名古屋站補</span></div>
+</div>
+</div>
+</div>
+
+<!-- 10/14 -->
+<div class="day" id="d14">
+<div class="day-h"><span class="dt">10/14（三）</span><span class="th">熱田神宮・大須商店街 → 返程</span><span class="zone">名城線一條線，順路不繞</span></div>
+<div class="day-b">
+<div class="tl">
+  <div class="t">09:00</div><div class="ic">·</div><div class="c">退房（11:00 前），行李寄放飯店</div>
+  <div class="t">09:30</div><div class="ic i-go">➜</div><div class="c">名城線 <strong>榮 → 熱田神宮西</strong>（約 15 分），2 號出口步行 7 分</div>
+  <div class="t">10:00</div><div class="ic i-spot">◆</div><div class="c"><strong>熱田神宮</strong>：1,900 年歷史、供奉草薙神劍；境內免費、參道平坦，約 1–1.5 小時<span class="s">午餐：境內「宮きしめん」</span></div>
+  <div class="t">12:30</div><div class="ic i-shop">▣</div><div class="c">名城線 → <strong>上前津</strong>，<strong>大須商店街</strong>（1,200 店、有頂棚）<span class="s">矢場とん味噌豬排、青柳總本家青蛙饅頭、大須外郎糕、大須觀音｜多數 11:00 開、19:00–20:00 關｜部分店家不退稅</span></div>
+  <div class="t"></div><div class="ic i-opt">◇</div><div class="c">白鳥庭園（中學生以下免費）或熱田神宮寶物館 —— 選了大須就要壓縮，建議二選一</div>
+  <div class="t hard">15:30</div><div class="ic i-go">➜</div><div class="c">上前津 → 榮 取行李</div>
+  <div class="t hard">17:00</div><div class="ic i-go">➜</div><div class="c">名古屋站 μ-SKY → 中部機場（名古屋站可最後補免稅品）→ <strong>JX839 19:55</strong> → 22:00 桃園 T1</div>
+</div>
+</div>
+</div>
+
+<!-- ================= 訂單 ================= -->
+<h2 id="booking">四、已確認訂單</h2>
+<table>
+<tbody>
+<tr><th class="nw">去程</th><td><strong>星宇 JX838</strong>　10/09（五）14:55 桃園 T1 → 18:45 中部機場 T1　A330-900<span class="b ok">已確認</span></td></tr>
+<tr><th class="nw">回程</th><td><strong>星宇 JX839</strong>　10/14（三）19:55 中部機場 T1 → 22:00 桃園 T1　A330-900<span class="b ok">已確認</span></td></tr>
+<tr><th class="nw">飯店</th><td><strong>皇家公園飯店名古屋標誌</strong>（The Royal Park Hotel Iconic Nagoya）<span class="b ok">已確認</span><br>
+<span class="mono">4-1-1 Sakae, 中區, 460-0008 名古屋市　／　+81 52-269-1118</span><br>
+<span class="mono">訂單 1688901846098514　確認 1688901162672947</span><br>
+高級雙床房［現代概念］× 2 間（29m²、29–31 樓）｜5 晚｜15:00 入住／11:00 前退房｜早餐未含（TWD 794／人）</td></tr>
+<tr><th class="nw">樂高門票</th><td><strong>樂高樂園 1 日券＋SEA LIFE</strong>　10/13（二）　6 大 1 童<span class="b ok">已購 NT$8,866</span><br><span class="small">Klook 早鳥：3 張成人單買 NT$4,005＋1 組 4 人團 NT$4,861</span></td></tr>
+<tr><th class="nw">慶生晚餐</th><td><strong>料亭 八勝館</strong>（米其林 ★★、國家重要文化財）　<strong>10/10（六）18:30</strong>　6 大 1 小<span class="b ok">已訂位</span><br>
+<span class="mono">確認番號 XDQZT7　／　訂位名 Hsun Chen　／　懷石　／　Birthday（Family）</span><br>
+<span class="mono">〒466-0834 名古屋市昭和區廣路町石坂 29　／　+81 52-831-1585（受付 9:00–17:00）</span><br>
+<span class="small">夜席 ¥30,000／¥35,000＋幼兒五角重 ¥5,000｜取消：2 營業日前～前一營業日 30%、當日 100%，只接受電話取消</span></td></tr>
+<tr class="gb"><th class="nw">吉卜力</th><td><strong>尚未訂</strong>　KKday CENTMAIN 住宿方案 10/9 入住 → 10/10 入園<span class="b gb">待決定</span>　見<a href="#ghibli">第二節</a></td></tr>
+</tbody>
+</table>
+
+<!-- ================= 交通 ================= -->
+<h2 id="transit">五、交通與票券</h2>
 <table>
 <thead><tr><th class="nw">日期</th><th>當天路線</th><th class="nw">建議票券</th><th class="n">每位大人</th></tr></thead>
 <tbody>
-<tr class="pick"><td class="nw">10/10 六</td><td>名城線 榮↔市役所、大曾根／メーグル<br><strong>＋ 晚間計程車 榮↔八事（八勝館）來回</strong></td><td><strong>ドニチエコきっぷ</strong><br><span class="small">晚餐來回另叫計程車<br>兩台×兩趟約 ¥10,000–12,000</span></td><td class="n">¥620<br><span class="small">＋車資分攤<br>約 ¥1,700／人</span></td></tr>
+<tr class="pick"><td class="nw">10/10 六</td><td>名城線 榮↔市役所、大曾根／メーグル＋晚間計程車 榮↔八事</td><td><strong>ドニチエコきっぷ</strong><br><span class="small">計程車兩台×兩趟 ¥10,000–12,000</span></td><td class="n">¥620<br><span class="small">＋車資約 ¥1,700</span></td></tr>
 <tr class="pick"><td class="nw">10/11 日</td><td>名城線→名港線 榮↔名古屋港↔港區役所</td><td><strong>ドニチエコきっぷ</strong></td><td class="n">¥620</td></tr>
-<tr class="pick"><td class="nw">10/12 一祝</td><td>東山線 榮↔亀島↔名古屋站／メーグル</td><td><strong>ドニチエコきっぷ</strong><br><span class="small">或メーグル1DAY ¥500（含豐田館折扣 ¥200）</span></td><td class="n">¥620</td></tr>
-<tr><td class="nw">10/13 二</td><td>東山線 ＋ <strong>あおなみ線</strong>（金城ふ頭）</td><td class="small">單程票<br><span class="small">あおなみ線不含在地鐵券</span></td><td class="n">約 ¥1,140</td></tr>
-<tr><td class="nw">10/14 三</td><td>名城線 榮→熱田神宮西→上前津→榮 ＋ μ-SKY</td><td class="small">單程票 ＋ μ-SKY</td><td class="n">約 ¥1,970</td></tr>
+<tr class="pick"><td class="nw">10/12 一祝</td><td>東山線 榮↔亀島↔名古屋站／メーグル</td><td><strong>ドニチエコきっぷ</strong><br><span class="small">或メーグル1DAY ¥500</span></td><td class="n">¥620</td></tr>
+<tr><td class="nw">10/13 二</td><td>東山線＋<strong>あおなみ線</strong>（金城ふ頭）</td><td class="small">單程票（あおなみ線不含在地鐵券）</td><td class="n">約 ¥1,140</td></tr>
+<tr><td class="nw">10/14 三</td><td>名城線 榮→熱田神宮西→上前津→榮＋μ-SKY</td><td class="small">單程票＋μ-SKY</td><td class="n">約 ¥1,970</td></tr>
+<tr class="gb"><td class="nw">Plan B<br>10/10</td><td>東山線 榮↔藤が丘＋リニモ 藤が丘↔愛・地球博記念公園</td><td class="small">東山線可用ドニチエコ；<strong>リニモ另付</strong>（單程約 ¥380）</td><td class="n">¥620<br><span class="small">＋リニモ來回</span></td></tr>
 </tbody>
 </table>
-<ul>
-<li><strong>ドニチエコきっぷ ¥620／小児 ¥310</strong>：市巴士＋地鐵全線一日券，<strong>僅週六日祝可用 —— 剛好 10/10、10/11、10/12 三天都適用</strong>，メーグル 也能搭。這三天的行程刻意都排在市營地鐵範圍內</li>
-<li><strong>地鐵未就學兒童免費</strong>（每位大人可帶 2 名），所以 3 歲幼兒的市區交通基本不花錢</li>
-<li>⚠️ <strong>あおなみ線（樂高）與名鐵（機場）都不屬名古屋市營交通，地鐵一日券不能用</strong></li>
-<li>持地鐵一日券到名古屋城售票處出示，每張門票可折 ¥100（現場確認）</li>
-<li><strong>メーグル 運休日為月曜（休日則順延）→ 10/12 運行、10/13 運休</strong></li>
+<ul class="small">
+<li><strong>ドニチエコきっぷ ¥620／小児 ¥310</strong>：市巴士＋地鐵全線一日券，僅週六日祝 —— 10/10、10/11、10/12 剛好三天都能用，メーグル 也能搭</li>
+<li>地鐵未就學兒童免費（每位大人可帶 2 名）</li>
+<li>あおなみ線（樂高）、名鐵（機場）、リニモ（吉卜力）都不屬市營交通，一日券不能用</li>
+<li>持一日券到名古屋城售票處出示，每張門票可折 ¥100</li>
 </ul>
 
-<h2>六、門票與預算</h2>
-<p class="small">6 大 1 小（幼兒 3 歲）。<strong>幼兒在多數景點免費 —— 已逐項確認。</strong></p>
+<!-- ================= 預算 ================= -->
+<h2 id="budget">六、門票與預算</h2>
+<p class="small">6 大 1 小（幼兒 3 歲），幼兒在多數景點免費（已逐項確認）。¥1 ≈ NT$0.205。</p>
 <table>
 <thead><tr><th>項目</th><th class="nw">3 歲幼兒</th><th class="n">日圓</th><th class="n">約新台幣</th></tr></thead>
 <tbody>
-<tr class="pick"><td><strong>樂高＋SEA LIFE Combo</strong>（10/13）<span class="ok-badge">已購</span></td><td>¥4,900</td><td class="n">—</td><td class="n"><strong>8,866</strong></td></tr>
-<tr><td>名古屋城＋德川園 共通券（10/10）6 大 × ¥1,040</td><td><strong>免費</strong></td><td class="n">6,240</td><td class="n">1,280</td></tr>
-<tr><td>名古屋港水族館（10/11）6 大 × ¥2,030</td><td><strong>免費</strong><br><span class="small">3 歲以下</span></td><td class="n">12,180</td><td class="n">2,500</td></tr>
-<tr><td>港區三館共通券（10/11）6 大 × ¥710</td><td><strong>免費</strong></td><td class="n">4,260</td><td class="n">875</td></tr>
-<tr><td>豐田產業技術紀念館（10/12）6 大 × ¥800</td><td><strong>免費</strong><br><span class="small">未就學</span></td><td class="n">4,800</td><td class="n">985</td></tr>
-<tr><td>則武之森 入園・熱田神宮・大須商店街</td><td>免費</td><td class="n">0</td><td class="n">0</td></tr>
-<tr class="pick"><td><strong>門票小計（含已購樂高）</strong></td><td></td><td class="n"><strong>27,480</strong></td><td class="n"><strong>≈ 14,500</strong></td></tr>
-<tr class="opt"><td>選擇性：白鳥庭園 6 大 ¥1,800、則武之森展館 ¥3,000、電視塔 ¥7,800、寶物館 ¥3,000、シートレインランド 依設施</td><td>多為免費</td><td class="n">0–15,600</td><td class="n">0–3,200</td></tr>
-<tr class="opt"><td>選擇性替代：磁浮鐵道館 6 大 ¥7,200 ＋ 幼兒 ¥200</td><td>¥200</td><td class="n">7,400</td><td class="n">1,520</td></tr>
+<tr class="pick"><td><strong>樂高＋SEA LIFE</strong>（10/13）<span class="b ok">已購</span></td><td>含</td><td class="n">—</td><td class="n"><strong>8,866</strong></td></tr>
+<tr><td>名古屋城＋德川園 共通券 6 大 × ¥1,040</td><td>免費</td><td class="n">6,240</td><td class="n">1,280</td></tr>
+<tr><td>名古屋港水族館 6 大 × ¥2,030</td><td>免費</td><td class="n">12,180</td><td class="n">2,500</td></tr>
+<tr><td>港區三館共通券 6 大 × ¥710</td><td>免費</td><td class="n">4,260</td><td class="n">875</td></tr>
+<tr><td>豐田產業技術紀念館 6 大 × ¥800</td><td>免費</td><td class="n">4,800</td><td class="n">985</td></tr>
+<tr><td>則武之森・熱田神宮・大須商店街</td><td>免費</td><td class="n">0</td><td class="n">0</td></tr>
+<tr class="pick"><td><strong>門票小計</strong></td><td></td><td class="n"><strong>27,480</strong></td><td class="n"><strong>≈ 14,500</strong></td></tr>
+<tr class="opt"><td>選擇性：白鳥庭園、則武之森展館、電視塔、寶物館、磁浮鐵道館等</td><td>多免費</td><td class="n">0–23,000</td><td class="n">0–4,700</td></tr>
 </tbody>
 </table>
 
 <table>
-<thead><tr><th>總預算</th><th class="n">基本</th><th class="n">選擇性全加</th></tr></thead>
+<thead><tr><th>總預算</th><th class="n">現行版</th><th class="n">Plan B（加吉卜力）</th></tr></thead>
 <tbody>
-<tr><td><strong>機＋酒</strong>（星宇 ＋ 皇家公園標誌 5 晚 2 房，台灣 4 大 1 小）<span class="ok-badge">已付</span></td><td class="n"><strong>171,880</strong></td><td class="n"><strong>171,880</strong></td></tr>
-<tr><td>大眾運輸（5 人，含機場往返）</td><td class="n">4,200</td><td class="n">4,900</td></tr>
-<tr><td>門票（含已購樂高 8,866）</td><td class="n">14,500</td><td class="n">19,200</td></tr>
-<tr class="pick"><td><strong>慶生晚餐 八勝館</strong>（10/10，6 大 1 小）<span class="ok-badge">已訂位</span><br><span class="small">夜席 ¥30,000×6 ＋ 幼兒五角重 ¥5,000（含稅含服務費）＋ 計程車來回約 ¥11,000</span></td><td class="n"><strong>40,200</strong></td><td class="n"><strong>40,200</strong></td></tr>
-<tr class="pick"><td><strong>合計</strong></td><td class="n"><strong>≈ NT$230,780</strong></td><td class="n"><strong>≈ NT$236,180</strong></td></tr>
+<tr><td><strong>機＋酒</strong>（台灣 4 大 1 小）<span class="b ok">已付</span></td><td class="n">171,880</td><td class="n">171,880</td></tr>
+<tr><td>大眾運輸（含機場往返）</td><td class="n">4,200</td><td class="n">4,500</td></tr>
+<tr><td>門票（含已購樂高）</td><td class="n">14,500</td><td class="n">13,500<br><span class="small">少豐田館</span></td></tr>
+<tr><td><strong>慶生晚餐 八勝館</strong>（¥30,000 檔×6＋幼兒＋計程車）<span class="b ok">已訂位</span></td><td class="n">40,200</td><td class="n">40,200</td></tr>
+<tr class="gb"><td><strong>吉卜力 KKday CENTMAIN 方案</strong>（Twin × 3 間）</td><td class="n">—</td><td class="n">≈ 34,600</td></tr>
+<tr class="pick"><td><strong>合計</strong></td><td class="n"><strong>≈ NT$230,780</strong></td><td class="n"><strong>≈ NT$264,680</strong></td></tr>
 </tbody>
 </table>
-<p class="small">機＋酒為台灣 4 大 1 小的已付金額；門票與慶生晚餐以 6 大 1 小計（在日本會合的兩位另計或自行負擔）。<strong>慶生晚餐以 ¥30,000 檔估算；若選 ¥35,000 檔，晚餐一項變 ≈ NT$46,300，總計約多 NT$6,100</strong>（含稅含服務費、不含酒水）。其餘餐食與購物未計入。</p>
+<p class="small">機＋酒為台灣 4 大 1 小已付金額；門票與晚餐以 6 大 1 小計。晚餐若選 ¥35,000 檔約再多 NT$6,100。其餘餐食與購物未計入。</p>
 
-<h2>七、待辦事項</h2>
-<div class="box warn">
-<p><strong>現在最要緊的一件事：補一通電話給八勝館，把「六大一小的細節」講清楚。</strong>線上訂位只送得出人數與時間，<strong>椅子席、幼兒餐、嬰幼兒座椅、古希慶祝、過敏</strong>這些都沒進系統。</p>
-<p><span class="mono">☎ +81 52-831-1585（受付 9:00–17:00 日本時間）</span>　報確認番號 <span class="mono">XDQZT7</span>（訂位名 Hsun Chen）即可調出訂位。要講的六件事：</p>
-<ol class="small">
-<li><strong>七名（大人 6 名、3 歲幼兒 1 名）</strong>　<span class="mono">大人6名、3歳の子ども1名、計7名です</span></li>
-<li><strong>要個室</strong>　<span class="mono">個室をお願いします</span></li>
-<li><strong>要椅子席</strong>（榻榻米座敷對長輩負擔大）　<span class="mono">高齢の方が2名おりますので、イス席をお願いできますか</span></li>
-<li><strong>幼兒餐與嬰幼兒座椅</strong>（五角重 ¥5,000）　<span class="mono">3歳の子ども用のお食事（五角重）と、お子様用のイスをお願いします</span></li>
-<li><strong>是 70 歲生日慶祝，能否安排祝賀擺盤或蛋糕</strong>　<span class="mono">古希のお祝いです。お祝いのお料理やケーキのご相談は可能でしょうか</span></li>
-<li><strong>過敏／不吃的食材</strong>　<span class="mono">アレルギーがございます</span></li>
-</ol>
-<p class="small">同一通電話順便確認 <strong>夜席要哪一檔（¥30,000 或 ¥35,000）</strong>，以及<strong>18:30 入席、2.5–3 小時的懷石會不會超過打烊（官方夜席時段寫 17:30–21:00）</strong>——如果會，問要不要提早到 18:00。另外「飛驒牛菲力牛排懷石」可以把燒物換成飛驒牛，長輩若不愛海鮮可以問這個選項。<strong>別選「田舎家」圍爐裏房：¥50,000／人起，而且要走飛石石階，官方註明腳力不便者不適合。</strong></p>
-</div>
-
-<div class="box ok">
-<p><strong>其餘行程沒有任何一張票會售完，全部可以現場買。</strong></p>
-<p>景點 —— 名古屋城、德川園、名古屋港水族館、港區三館、豐田產業技術紀念館、則武之森、熱田神宮、大須、白鳥庭園、磁浮鐵道館 —— <strong>全部都是現場買票、不需預約、不會完售</strong>。樂高票與慶生晚餐都已經訂好了。</p>
-</div>
-
-<table>
-<thead><tr><th class="n">#</th><th>項目</th><th>說明</th></tr></thead>
-<tbody>
-<tr class="pick"><td class="n">1</td><td><strong>八勝館補訂電話</strong><span class="ok-badge">最優先</span></td><td class="small">上面那六件事＋確認檔次。<strong>「古希祝賀擺盤」這種安排通常要提前講，現場說來不及</strong></td></tr>
-<tr class="pick"><td class="n">2</td><td><strong>10/6–10/7 要接得到八勝館的確認電話</strong><span class="ok-badge">關鍵</span></td><td class="small">八勝館會在<strong>用餐前 3–4 天打電話確認</strong>，官網寫「沒接到確認電話者可能視為取消」。<strong>10/6–10/7 我們還在台灣</strong>，所以訂位時務必留一支<strong>接得到日本來電的號碼</strong>（開漫遊的手機），並留意來電。10/9 入住後可再把飯店櫃台 <span class="mono">+81 52-269-1118</span> 補給店家</td></tr>
-<tr><td class="n">3</td><td>八勝館取消規定</td><td class="small"><strong>2 個營業日前～前一營業日取消或減人收 30%、當日 100%</strong>。<strong>只接受電話取消（9:00–17:00）</strong>，表單與 FAX 都不算。人數有變動要儘早打</td></tr>
-<tr><td class="n">4</td><td>10/10 的服裝</td><td class="small">料亭正式場合 → <strong>正裝或襯衫／洋裝</strong>；榻榻米個室要脫鞋，<strong>穿好脫的鞋、沒破洞的襪子</strong>。行李要留這一套的空間</td></tr>
-<tr class="pick"><td class="n">5</td><td><strong>樂高門票</strong><span class="ok-badge">已購</span></td><td class="small">唯一要確認：<strong>6 位是否都滿 19 歲</strong>（樂高「兒童」為 3–18 歲，若有 18 歲以下應買兒童票，每人省 ¥1,600）</td></tr>
-<tr><td class="n">6</td><td>飯店早餐要不要加購</td><td class="small">TWD 794／人／天。榮商圈的名古屋咖啡店晨間套餐（morning service）便宜又有特色，<strong>建議先不加購</strong></td></tr>
-<tr><td class="n">7</td><td>10/12 二選一：イオンモール 還是 磁浮鐵道館</td><td class="small">小孩很愛車就選磁浮鐵道館（幼兒僅 ¥200，且只有 10/12 開館）；想輕鬆買伴手禮就留在則武的イオンモール。<strong>都不需預約，當天決定</strong></td></tr>
-<tr><td class="n">8</td><td>10/14 二選一：大須商店街 還是 白鳥庭園</td><td class="small">建議大須（1,200 店、免費、順路、有頂棚）。當天決定即可</td></tr>
-<tr><td class="n">9</td><td>查名古屋電視塔 10 月營業時間</td><td class="small">官網僅公告至 6/30。<strong>原本排在 10/10 傍晚，現在讓給慶生晚餐了</strong> —— 它和 Oasis 21 點燈都在飯店旁走路可到，改成 <strong>10/11 或 10/12 回飯店後</strong>想去再去</td></tr>
-</tbody>
-</table>
-
-<h3>行前準備</h3>
-<ul>
-<li><strong>Visit Japan Web</strong>：入境與海關申報線上預填</li>
-<li><strong>交通 IC 卡</strong>：manaca／Suica／ICOCA 皆可</li>
-<li><strong>網路</strong>：eSIM 或網卡</li>
-<li><strong>日幣現金</strong>：神社、大須小店仍以現金為主</li>
-<li><strong>免稅護照</strong>：榮與名古屋站百貨退稅要出示護照正本</li>
-<li><strong>旅遊保險</strong>：有長輩與幼兒同行，建議含醫療與行程取消</li>
-<li><strong>藥品</strong>：長輩常備藥、幼兒用藥</li>
-<li><strong>行李</strong>：五個購物區 ＋ 兩天樂園，回程行李會脹 —— 星宇經濟艙含 2×23kg，但手提也要留餘裕</li>
+<!-- ================= 待辦 ================= -->
+<h2 id="todo">七、待辦（依截止日排序）</h2>
+<p class="small">今天 9/30，距出發 9 天。已完成的請自行打勾。</p>
+<ul class="chk">
+<li><span class="when">今天就決定</span><strong>吉卜力要不要訂</strong>（KKday #139872 → 「吉卜力公園＋名古屋 CENTMAIN 酒店｜2日自由行」→ 10/9 → 雙床房 Twin × 3）。<span class="small">名額隨時消失、訂了不能取消；需 6 位大人的護照英文姓名</span></li>
+<li><span class="when">10/5 前</span><strong>打給八勝館補細節</strong> <span class="mono">+81 52-831-1585（9:00–17:00）</span>，報 <span class="mono">XDQZT7</span>：
+  <ol class="small">
+  <li>七名（大人 6、3 歲 1）　<span class="mono">大人6名、3歳の子ども1名、計7名です</span></li>
+  <li>個室　<span class="mono">個室をお願いします</span></li>
+  <li>椅子席　<span class="mono">高齢の方が2名おりますので、イス席をお願いできますか</span></li>
+  <li>幼兒餐＋兒童椅　<span class="mono">3歳の子ども用のお食事（五角重）と、お子様用のイスをお願いします</span></li>
+  <li>古希祝賀擺盤／蛋糕　<span class="mono">古希のお祝いです。お祝いのお料理やケーキのご相談は可能でしょうか</span></li>
+  <li>過敏食材　<span class="mono">アレルギーがございます</span></li>
+  </ol>
+  <span class="small">順便確認：夜席 ¥30,000 或 ¥35,000 檔；18:30 入席會不會超過 21:00 打烊（需要的話提早到 18:00）；長輩不愛海鮮可問「飛驒牛菲力懷石」。別選「田舎家」（¥50,000 起、要走飛石石階）</span></li>
+<li><span class="when">10/6–10/7</span><strong>接得到八勝館的確認電話</strong>：店家用餐前 3–4 天會打電話確認，沒接到可能視為取消 —— 留一支開漫遊的手機並留意日本來電</li>
+<li><span class="when">出發前</span>樂高票：確認 6 位是否都滿 19 歲（3–18 歲屬兒童票，每人差 ¥1,600）</li>
+<li><span class="when">出發前</span>Visit Japan Web 預填入境與海關申報</li>
+<li><span class="when">出發前</span>eSIM／網卡、日幣現金（神社與大須小店）、旅遊保險（含醫療與取消）、長輩與幼兒常備藥</li>
+<li><span class="when">打包</span>10/10 正式服裝＋好脫的鞋、沒破洞的襪子；免稅用護照正本；回程行李空間（星宇經濟艙 2×23kg）</li>
+<li><span class="when">現場決定</span>10/12 イオンモール vs 磁浮鐵道館；10/14 大須 vs 白鳥庭園；飯店早餐建議先不加購（改吃名古屋咖啡店早餐）；電視塔 10 月營業時間現場確認</li>
 </ul>
 
+<!-- ================= 店家 ================= -->
+<h2 id="shops">八、購物區與店家中日對照</h2>
+<table>
+<thead><tr><th>購物區</th><th class="nw">排在</th><th>特色</th><th class="nw">時間</th></tr></thead>
+<tbody>
+<tr><td><strong>榮四大百貨＋サカエチカ</strong></td><td class="nw">10/10 傍晚速逛<br>10/13 晚間主力</td><td class="small">三越／LACHIC／松坂屋／PARCO，榮到矢場町步行 10 分內；LOFT、Apple Store 也在此</td><td class="small">松坂屋 3F 以下 10:00–20:00</td></tr>
+<tr><td><strong>ららぽーと みなとアクルス</strong></td><td class="nw">10/11 下午</td><td class="small">217 店、家庭客為主，1F「しなまつり」飛驒伴手禮</td><td class="small">9:00–20:00</td></tr>
+<tr><td><strong>イオンモール 則武</strong></td><td class="nw">10/12 下午</td><td class="small">緊鄰則武之森與豐田館，零食伴手禮、童裝</td><td class="small">依店鋪</td></tr>
+<tr><td><strong>名古屋站百貨・地下街</strong></td><td class="nw">10/12 傍晚</td><td class="small">JR 高島屋、名鐵百貨、Gate Tower、Midland Square、KITTE；ユニモール／エスカ等</td><td class="small">多為 10:00–20:00</td></tr>
+<tr><td><strong>大須商店街</strong></td><td class="nw">10/14 中午</td><td class="small">1,200 店、有頂棚；古著、3C、食べ歩き</td><td class="small">11:00–19:00 前後</td></tr>
+</tbody>
+</table>
+<div class="box shop"><p class="small"><strong>免稅採買順序：</strong>大額（電器、化妝品、名牌）在 10/12 名古屋站百貨或 10/13 晚間榮百貨處理；10/10 只有一小時別排退稅；大須留給古著、小吃、零食；10/14 去機場途經名古屋站可最後補。</p></div>
+
+<details>
+<summary>店家中日文對照表（日文原名直接貼進 Google Maps）</summary>
+<p class="small"><strong>▣ 榮商圈</strong></p>
+<table>
+<thead><tr><th>中文名</th><th>日文原名</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>松坂屋名古屋店</td><td class="mono">松坂屋名古屋店</td><td class="small">旗艦老牌百貨，規模最大</td></tr>
+<tr><td>名古屋榮三越</td><td class="mono">名古屋栄三越</td><td class="small">高級百貨，與 LACHIC 相連</td></tr>
+<tr><td>LACHIC</td><td class="mono">ラシック</td><td class="small">年輕品牌，7–8F 餐廳評價好</td></tr>
+<tr><td>名古屋 PARCO</td><td class="mono">名古屋パルコ</td><td class="small">東・西・南三館，動漫與潮牌</td></tr>
+<tr><td>榮地下街</td><td class="mono">栄地下街 サカエチカ</td><td class="small">下雨也能逛</td></tr>
+<tr><td>綠洲 21</td><td class="mono">オアシス21</td><td class="small">免費，夜間點燈</td></tr>
+<tr><td>中部電力 MIRAI TOWER</td><td class="mono">中部電力 MIRAI TOWER</td><td class="small">展望台大人 ¥1,300、未就學免費</td></tr>
+<tr><td>LOFT 名古屋</td><td class="mono">ロフト名古屋店</td><td class="small">文具雜貨</td></tr>
+<tr><td>唐吉訶德 榮店</td><td class="mono">ドン・キホーテ栄店</td><td class="small">藥妝零食，營業到很晚</td></tr>
+<tr><td>中日大樓<span class="tag">飯店所在</span></td><td class="mono">中日ビル</td><td class="small">樓下有商店與餐飲</td></tr>
+</tbody>
+</table>
+<p class="small"><strong>▣ 名古屋港</strong></p>
+<table>
+<tbody>
+<tr><td>LaLaport 名古屋港 AQULS</td><td class="mono">ららぽーと名古屋みなとアクルス</td><td class="small">名港線「港區役所」步行 2 分</td></tr>
+<tr><td>物產館</td><td class="mono">しなまつり</td><td class="small">LaLaport 1F，飛驒伴手禮</td></tr>
+</tbody>
+</table>
+<p class="small"><strong>▣ 則武 → 名古屋站</strong></p>
+<table>
+<tbody>
+<tr><td>永旺夢樂城 則武花園</td><td class="mono">イオンモール Nagoya Noritake Garden</td><td class="small">則武新町 3-1-17</td></tr>
+<tr><td>則武之森</td><td class="mono">ノリタケの森</td><td class="small">入園免費，餐廳「レストランキルン」</td></tr>
+<tr><td>JR 名古屋高島屋</td><td class="mono">ジェイアール名古屋タカシマヤ</td><td class="small">含 HANDS</td></tr>
+<tr><td>名鐵百貨店本店</td><td class="mono">名鉄百貨店本店</td><td class="small">Nana-chan 人偶地標</td></tr>
+<tr><td>JR Gate Tower Mall</td><td class="mono">ジェイアールゲートタワーモール</td><td class="small">Bic Camera、Uniqlo</td></tr>
+<tr><td>Midland Square</td><td class="mono">ミッドランドスクエア</td><td class="small">名牌精品</td></tr>
+<tr><td>KITTE 名古屋</td><td class="mono">KITTE名古屋</td><td class="small">選物與餐飲</td></tr>
+<tr><td>名古屋站地下街</td><td class="mono">ユニモール／ゲートウォーク／エスカ／サンロード</td><td class="small">全部相通；エスカ名產多</td></tr>
+<tr><td>美食街</td><td class="mono">うまいもん通り</td><td class="small">味噌豬排、鰻魚飯、台灣拉麵</td></tr>
+</tbody>
+</table>
+<p class="small"><strong>▣ 大須</strong></p>
+<table>
+<tbody>
+<tr><td>大須商店街</td><td class="mono">大須商店街</td><td class="small">多數 11:00 開門</td></tr>
+<tr><td>大須觀音</td><td class="mono">大須観音</td><td class="small">免費參拜</td></tr>
+<tr><td>萬松寺</td><td class="mono">万松寺</td><td class="small">織田家寺院</td></tr>
+<tr><td>KOMEHYO 大須本店</td><td class="mono">コメ兵 大須本店</td><td class="small">二手名牌發源本店</td></tr>
+<tr><td>矢場とん</td><td class="mono">矢場とん 矢場町本店</td><td class="small">味噌豬排代表店</td></tr>
+<tr><td>青柳總本家</td><td class="mono">青柳総本家 大須本店</td><td class="small">青蛙饅頭、外郎糕</td></tr>
+<tr><td>大須外郎糕</td><td class="mono">大須ういろ</td><td class="small">傳統點心</td></tr>
+</tbody>
+</table>
+</details>
+
 <div class="foot">
-<strong>2026-09-24 更新：</strong>70 歲慶生晚餐已訂位 —— 料亭 八勝館（米其林 ★★），10/10（六）18:30、6 大 1 小、確認番號 XDQZT7、Category 懷石、Purpose Birthday（Family）。連帶調整：10/10 下午的榮購物縮為 16:00–17:15 速逛、主力移到 10/13 晚間；10/10 晚間的 Oasis 21 點燈與名古屋電視塔取消（改到 10/11 或 10/12）；德川園改為 13:30–15:00 並須準時離園；預算新增慶生晚餐一項。八勝館資訊來源：八勝館官網（アクセス頁之住所〒466-0834 名古屋市昭和区広路町石坂29・TEL 052-831-1585・八事駅 4 番出口徒歩 3 分、ご予約頁之取消規定與事前確認電話）、TableCheck 店頁懷石價目、配套文件《70 歲慶生晚餐｜名古屋餐廳選項表》（2026-09-21／09-23 實查）。<br>
-資料來源（皆為 2026-09-14 實查）：Trip.com 與 Klook 訂單、FlyTeam 2026/10 班表、Lawson Ticket 海外購票站（吉卜力 10/3–10/30 售完確認）、樂高樂園官方 1DAY 價格表 PDF、名古屋城官網、トヨタ産業技術記念館官網、ノリタケの森官網、イオンモール Nagoya Noritake Garden、名古屋港水族館官網、名古屋港ポートビル／南極観測船ふじ（Aichi Now）、名古屋港シートレインランド、ららぽーと名古屋みなとアクルス官網、リニア・鉄道館官網、熱田神宮／白鳥庭園／德川園（名古屋市觀光官方）、松坂屋名古屋店／名古屋栄三越／LACHIC、大須商店街、名古屋市交通局、メーグル 官網。<br>
-¥1 ≈ NT$0.205。營業時間與休館日出發前建議再確認官網。幼兒票價以「出發時實際年齡 3 歲」為前提 —— 若滿 4 歲，名古屋港水族館需補 ¥500、港區三館仍免費。
+<strong>2026-09-30 更新：</strong>版面重整（六天一覽卡、每日時間軸、依截止日排序的待辦）；吉卜力票況實查 —— 官方 Boo-Woo／Lawson、Klook 門票、Klook 與 KKday 名古屋出發一日遊 10/10–10/14 皆售罄（一日遊 10 月僅剩 10/5、10/7、10/31）；KKday #139872「吉卜力公園＋名古屋 CENTMAIN 酒店 2日自由行」10/9 入住仍可選（Twin 約 NT$11,534／間，入園日為入住隔天 10/10、大散步券 Premium、大倉庫 10:00–10:59）。吉卜力公園 10 月休園日為每週二（10/6、13、20、27）。來源：ジブリパーク官網（チケット・営業カレンダー）、Klook、KKday 商品頁（皆 2026-09-30 查詢），價格與名額隨時變動。<br>
+2026-09-24：八勝館 10/10 18:30 訂位（XDQZT7）。其餘營業資訊為 2026-09-14 實查。營業時間與休館日出發前建議再確認官網。幼兒票價以出發時 3 歲為前提（若滿 4 歲，名古屋港水族館需補 ¥500；吉卜力 4 歲起需購兒童票）。
 </div>
 
 </div>
